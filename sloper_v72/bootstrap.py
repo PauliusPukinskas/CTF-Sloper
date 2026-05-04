@@ -574,4 +574,19 @@ def boot():
         _apply_hardening_v108(legacy)
     except Exception as e:
         print("warning: hardening_v108 failed:", e)
+    try:
+        from .fast_lane_v110 import apply as _apply_fast_lane_v110
+        _apply_fast_lane_v110(legacy)
+    except Exception as e:
+        print("warning: fast_lane_v110 failed:", e)
+    try:
+        from .control_plane_v111 import install as _install_control_plane_v111
+        _install_control_plane_v111(legacy)
+    except Exception as e:
+        print("warning: control_plane_v111 failed:", e)
+    try:
+        from .ui_v112 import install as _install_ui_v112
+        _install_ui_v112(legacy)
+    except Exception as e:
+        print("warning: ui_v112 failed:", e)
     return legacy

@@ -83,3 +83,67 @@ make package                # create zip/tar release from repo
 ## Important safety note
 
 This is intended for local CTF/lab use. Do not commit private challenge files, credentials, tokens, memory dumps, or generated artifacts from real competitions.
+
+## v110 refactor + benchmark mode
+
+This repo no longer keeps all runtime code inside one massive `sloper_legacy.py`.
+The old monolith is split into `sloper_legacy_parts/`, while `sloper_legacy.py` stays as a compatibility loader.
+New improvements should go into `sloper_v72/` or future `core/` / `solvers/` modules.
+
+Run the regression benchmark:
+
+```bash
+python3 scripts/benchmark_solver.py
+```
+
+Safe fast-lane solving is enabled by default. For targeted old-engine profiling only:
+
+```bash
+SLOPER_ENABLE_LEGACY_DEEP=1 SLOPER_ENABLE_LEGACY_SUMMARY=1 bash START_HERE.sh
+```
+
+
+
+## v111: Operator-controlled solving
+
+This version adds a real control plane for CTF runs:
+
+- selectable flag formats: `ctf_cs{...}`, `ctf_cm{...}`, `flag{...}`, `picoCTF{...}`, `HTB{...}`, bare `{...}`, any-prefix, or custom regex;
+- attack presets: quick, balanced, deep, hardcore;
+- difficulty hints: easy, medium, hard, multi-step;
+- per-project solver settings saved in `project.json`;
+- cleaner artifact summaries and bounded benchmark scripts.
+
+Run the local regression benchmark:
+
+```bash
+python3 scripts/benchmark_solver.py
+```
+
+Run a fair benchmark against a local CTF writeup/challenge repo:
+
+```bash
+python3 scripts/benchmark_writeup_repo.py /path/to/CTF
+```
+
+## v112: clean UI + recursive decoder benchmark
+
+This version adds a cleaner GitHub-ready UI and fixes several control-plane bugs:
+
+- custom flag formats now persist through `/api/preferences`
+- per-project solver settings are respected by the fast-lane solver
+- UI tabs are stable and no longer mismatched with hidden panels
+- `/` redirects to `/static/index.html`
+- `/api/ui_health` reports duplicate route problems
+- recursive bounded decoders cover base64/base64url, hex, base32, base85, URL, HTML entities, ROT, reverse, gzip/zlib/bz2/xz, decimal bytes, binary bits, Morse, and small XOR
+
+Run local checks:
+
+```bash
+bash scripts/check.sh
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest -q
+python3 scripts/benchmark_solver.py
+```
+
+Latest synthetic benchmark: `15/15` passed; see `docs/BENCHMARK_RESULTS_v112.json`.
+
