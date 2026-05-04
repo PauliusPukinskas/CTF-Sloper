@@ -1,0 +1,51 @@
+{
+  "name": "v23 TransformAgents",
+  "principle": "Agents execute local transformations, create artifacts, and re-feed outputs into evidence/decoder chains.",
+  "transformations": {
+    "generic_bytes": [
+      "reverse_bytes",
+      "xor_best_candidates",
+      "extract_base_blobs",
+      "decompress_attempts",
+      "strings_ascii_utf16"
+    ],
+    "image": [
+      "filter_images",
+      "bitplanes",
+      "lsb_text",
+      "ocr_qr_summary",
+      "metadata_text",
+      "binwalk_foremost_child_files"
+    ],
+    "pcap": [
+      "http_object_export",
+      "tcp_stream_text_files",
+      "dns_text_file",
+      "protocol_summary"
+    ],
+    "pdf": [
+      "pdftotext_file",
+      "pdfimages_extract",
+      "pdfdetach_extract",
+      "metadata_text"
+    ],
+    "archive": [
+      "7z_extract",
+      "zip_comment_text",
+      "child_queue"
+    ],
+    "binary": [
+      "strings_dump",
+      "utf16_strings_dump",
+      "rodata_dump",
+      "rabin2_strings_dump",
+      "upx_unpacked_copy_if_possible"
+    ],
+    "crypto_text": [
+      "decoded_candidate_files",
+      "rsa_params_json",
+      "jwt_decoded_json",
+      "hash_candidates_txt"
+    ]
+  }
+}

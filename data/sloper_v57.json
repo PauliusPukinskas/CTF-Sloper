@@ -1,0 +1,11 @@
+{
+  "name": "CTF SLOPER v57",
+  "focus": [
+    "classical crypto solver",
+    "Vigenere clue-key solver",
+    "Morse/Bacon/Railfence/ROT/Atbash",
+    "solver playbook artifact",
+    "candidate ranker",
+    "project-level clue extraction"
+  ]
+}

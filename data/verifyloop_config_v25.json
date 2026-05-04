@@ -1,0 +1,16 @@
+{
+  "name": "v25 VerifyLoop",
+  "goal": "Automatically run relevant tools, but promote flags only after verification.",
+  "flag_statuses": [
+    "confirmed",
+    "likely",
+    "possible",
+    "low"
+  ],
+  "false_positive_filters": [
+    "format/template ctf_cs{...}",
+    "example/sample/test/smoke/dummy/fake placeholders",
+    "source-only mentions"
+  ],
+  "continuous_loop": "Promote useful unresolved transformation artifacts into files/_verifyloop_children for bounded re-analysis."
+}

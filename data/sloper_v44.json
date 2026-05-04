@@ -1,0 +1,12 @@
+{
+  "name": "CTF SLOPER v44",
+  "focus": [
+    "reversing cmp/immediate validation recovery",
+    "byte-array pairwise transform decoding",
+    "image transform cascade with OCR/QR hooks",
+    "classic crypto expansion: rail/every-nth/Bacon/Vigenere/whitespace",
+    "stronger stego-after-transformation workflow",
+    "better artifact autopass candidates",
+    "more evidence-focused human review"
+  ]
+}

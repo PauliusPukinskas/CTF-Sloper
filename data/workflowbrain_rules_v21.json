@@ -1,0 +1,58 @@
+{
+  "name": "v21 WorkflowBrain",
+  "principle": "Do not blindly grep for flags. Identify challenge family, build hypotheses, run matching local workflows, then chain outputs.",
+  "category_playbooks": {
+    "image": [
+      "metadata/comment",
+      "appended archive",
+      "PNG/BMP LSB",
+      "visual OCR/QR",
+      "passworded stego",
+      "palette/channel anomaly"
+    ],
+    "pcap": [
+      "protocol overview",
+      "HTTP objects",
+      "DNS TXT/base encoding",
+      "TCP streams",
+      "credentials/tokens",
+      "carved payloads"
+    ],
+    "binary": [
+      "packing",
+      "strings/rodata",
+      "imports and compare functions",
+      "static disassembly",
+      "runtime traces",
+      "XOR/encoded blobs"
+    ],
+    "crypto_text": [
+      "encoding stack",
+      "classical cipher",
+      "XOR/crib",
+      "hash recognition",
+      "JWT",
+      "RSA parameter extraction"
+    ],
+    "pdf": [
+      "text layer",
+      "metadata",
+      "embedded images",
+      "attachments",
+      "carved children"
+    ],
+    "archive": [
+      "listing/comment",
+      "nested children",
+      "password hints",
+      "file names",
+      "embedded data"
+    ],
+    "media": [
+      "metadata",
+      "spectrogram",
+      "reversed/altered audio",
+      "strings/appended data"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "profile_name": "Operator",
+  "theme": "dark",
+  "accent_color": "#35d07f",
+  "tool_color": "#35d07f",
+  "flag_prefix": "ctf_cs",
+  "show_project_counter": true
+}

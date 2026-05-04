@@ -1,0 +1,13 @@
+{
+  "name": "CTF SLOPER v49",
+  "focus": [
+    "image visual contact sheets",
+    "edge/threshold/upscale/sharpen visual transforms",
+    "OCR/QR on selected transforms",
+    "fast text decode artifacts",
+    "better human project brief",
+    "artifact category counts",
+    "stricter promoted flag cleanup",
+    "launch reliability"
+  ]
+}

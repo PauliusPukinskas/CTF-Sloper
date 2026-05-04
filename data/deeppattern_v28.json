@@ -1,0 +1,15 @@
+{
+  "name": "v28 DeepPattern",
+  "added_branches": [
+    "multi_layer_encoding_stack",
+    "strict_flag_body_validation",
+    "xor_crib_key_recovery",
+    "rot_all_then_base_decode",
+    "jwt_structured_decode",
+    "rsa_param_artifact",
+    "png_lsb_bit_order_variants",
+    "zip_nested_child_queue",
+    "artifact_graph_solve_path",
+    "deep_recipe_priority"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "CTF SLOPER v42",
+  "focus": [
+    "cross-file project solver",
+    "password/key propagation",
+    "archive extraction with clue-derived passwords",
+    "pcap covert channel decoding",
+    "steghide/stegseek clue-password workflow",
+    "Morse/base64/hex/URL decode chains",
+    "stronger project summary and evidence view",
+    "cleaner UI with next-action lanes"
+  ]
+}

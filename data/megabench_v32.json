@@ -1,0 +1,11 @@
+{
+  "name": "v32 MegaBench",
+  "focus": [
+    "100-case generated local benchmark",
+    "stronger answer candidates",
+    "challenge intake format: title/statement/files",
+    "one-command installer",
+    "fast-first workflows",
+    "offline/local analysis tools"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "CTF SLOPER v47",
+  "focus": [
+    "human-friendly dashboard cleanup",
+    "bounded text/log fast paths",
+    "artifact priority cleanup",
+    "promoted flag demotion safety",
+    "next action quality",
+    "project health diagnostics",
+    "less false confidence",
+    "more evidence-first UX"
+  ]
+}

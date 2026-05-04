@@ -1,0 +1,11 @@
+{
+  "name": "v38 UXForge",
+  "focus": [
+    "ctf_cs-only primary flag logic",
+    "raw answer mode when statement says no wrapper",
+    "less random string promotion",
+    "simplified grouped navigation",
+    "non-overlapping artifact and visual result cards",
+    "human-friendly visual lab"
+  ]
+}

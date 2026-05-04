@@ -1,0 +1,67 @@
+{
+  "core": [
+    "file",
+    "strings",
+    "xxd",
+    "sha256sum",
+    "md5sum",
+    "exiftool",
+    "binwalk",
+    "foremost",
+    "yara",
+    "rg",
+    "python3"
+  ],
+  "image": [
+    "identify",
+    "pngcheck",
+    "zsteg",
+    "stegseek",
+    "steghide",
+    "tesseract",
+    "zbarimg",
+    "convert",
+    "ffmpeg"
+  ],
+  "pcap": [
+    "tshark",
+    "capinfos",
+    "tcpdump"
+  ],
+  "pdf": [
+    "pdfinfo",
+    "pdftotext",
+    "pdfimages",
+    "pdfdetach",
+    "qpdf"
+  ],
+  "binary": [
+    "readelf",
+    "objdump",
+    "nm",
+    "r2",
+    "rabin2",
+    "upx",
+    "gdb",
+    "ltrace",
+    "strace"
+  ],
+  "archive": [
+    "7z",
+    "unzip",
+    "zipinfo",
+    "fcrackzip"
+  ],
+  "media": [
+    "ffprobe",
+    "sox",
+    "soxi"
+  ],
+  "artifact": [
+    "sqlite3",
+    "apktool",
+    "jadx",
+    "uncompyle6",
+    "decompyle3"
+  ]
+}

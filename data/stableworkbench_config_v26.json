@@ -1,0 +1,9 @@
+{
+  "name": "v26 StableWorkbench",
+  "goals": [
+    "reduce fake/template flag noise",
+    "make all generated artifacts easy to access",
+    "stabilize manual UI tool tabs so polling does not kick the user out",
+    "keep AutoSweep/VerifyLoop bounded and useful"
+  ]
+}

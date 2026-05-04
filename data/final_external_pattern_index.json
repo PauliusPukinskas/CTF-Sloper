@@ -1,0 +1,205 @@
+{
+  "repo": "https://github.com/ShundaZhang/CTF",
+  "total_paths": 7619,
+  "top_extensions": [
+    [
+      ".png",
+      1150
+    ],
+    [
+      ".java",
+      920
+    ],
+    [
+      ".py",
+      900
+    ],
+    [
+      "<none>",
+      872
+    ],
+    [
+      ".txt",
+      799
+    ],
+    [
+      ".asm",
+      535
+    ],
+    [
+      ".xml",
+      466
+    ],
+    [
+      ".jpg",
+      185
+    ],
+    [
+      ".js",
+      144
+    ],
+    [
+      ".zip",
+      144
+    ],
+    [
+      ".sh",
+      111
+    ],
+    [
+      ".rels",
+      108
+    ],
+    [
+      ".c",
+      89
+    ],
+    [
+      ".enc",
+      81
+    ],
+    [
+      ".sage",
+      57
+    ],
+    [
+      ".css",
+      50
+    ],
+    [
+      ".php",
+      49
+    ],
+    [
+      ".html",
+      42
+    ],
+    [
+      ".pem",
+      41
+    ],
+    [
+      ".json",
+      38
+    ],
+    [
+      ".conf",
+      36
+    ],
+    [
+      ".o",
+      35
+    ],
+    [
+      ".gdb_history",
+      29
+    ],
+    [
+      ".6",
+      28
+    ],
+    [
+      ".h",
+      28
+    ],
+    [
+      ".go",
+      25
+    ],
+    [
+      ".gif",
+      25
+    ],
+    [
+      ".webp",
+      24
+    ],
+    [
+      ".bin",
+      24
+    ],
+    [
+      ".bmp",
+      22
+    ],
+    [
+      ".class",
+      21
+    ],
+    [
+      ".2",
+      21
+    ],
+    [
+      ".jpeg",
+      18
+    ],
+    [
+      ".pyc",
+      16
+    ],
+    [
+      ".sol",
+      15
+    ],
+    [
+      ".ejs",
+      14
+    ],
+    [
+      ".zig",
+      14
+    ],
+    [
+      ".vue",
+      13
+    ],
+    [
+      ".pdf",
+      13
+    ],
+    [
+      ".sqlite",
+      13
+    ]
+  ],
+  "keyword_counts": {
+    "misc": 1982,
+    "png": 1168,
+    "java": 925,
+    "apk": 891,
+    "crypto": 533,
+    "forensics": 387,
+    "reverse": 224,
+    "jpg": 204,
+    "pwn": 201,
+    "zip": 172,
+    "sage": 124,
+    "rsa": 108,
+    "tar": 90,
+    "class": 64,
+    "base": 53,
+    "pdf": 44,
+    "git": 32,
+    "qr": 26,
+    "xor": 22,
+    "gz": 20,
+    "sqlite": 18,
+    "pyc": 17,
+    "pcap": 16,
+    "binwalk": 12,
+    "wasm": 10,
+    "wav": 8,
+    "pickle": 5,
+    "rail": 4,
+    "morse": 4,
+    "elf": 4,
+    "vigenere": 4,
+    "audio": 2,
+    "exif": 1
+  },
+  "notes": [
+    "Indexed via git ls-tree because Windows checkout has illegal path names in a few archived challenge folders.",
+    "Used only as universal pattern signal; no challenge flags are hardcoded."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "CTF SLOPER v52",
+  "focus": [
+    "generic CTF multi-step coverage",
+    "magic carving and child analysis",
+    "project clue wordlist",
+    "ZIP password attempts from clues",
+    "binary constant array solver",
+    "entropy triage",
+    "coverage matrix"
+  ]
+}

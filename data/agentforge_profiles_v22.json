@@ -1,0 +1,6248 @@
+{
+  "name": "v22 AgentForge",
+  "target": "ctf_cs{...}",
+  "profile_count": 520,
+  "profiles": [
+    {
+      "id": "image_visual_ocr_01",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_02",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_03",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_04",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_05",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_06",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_07",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_08",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_09",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_10",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_11",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_12",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_13",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_14",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_15",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_16",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_17",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_18",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_19",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_20",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_visual_ocr_21",
+      "family": "image_visual_ocr",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_01",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_02",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_03",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_04",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_05",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_06",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_07",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_08",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_09",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_10",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_11",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_12",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_13",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_14",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_15",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_16",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_17",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_18",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_19",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_20",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_lsb_bitplane_21",
+      "family": "image_lsb_bitplane",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_01",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_02",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_03",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_04",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_05",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_06",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_07",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_08",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_09",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_10",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_11",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_12",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_13",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_14",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_15",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_16",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_17",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_18",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_19",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_20",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_metadata_21",
+      "family": "image_metadata",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_01",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_02",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_03",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_04",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_05",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_06",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_07",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_08",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_09",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_10",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_11",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_12",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_13",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_14",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_15",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_16",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_17",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_18",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_19",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_20",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "image_appended_payload_21",
+      "family": "image_appended_payload",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_01",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_02",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_03",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_04",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_05",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_06",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_07",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_08",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_09",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_10",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_11",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_12",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_13",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_14",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_15",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_16",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_17",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_18",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_19",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_20",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_static_21",
+      "family": "reverse_static",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_01",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_02",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_03",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_04",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_05",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_06",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_07",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_08",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_09",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_10",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_11",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_12",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_13",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_14",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_15",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_16",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_17",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_18",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_19",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_20",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_packing_21",
+      "family": "reverse_packing",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_01",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_02",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_03",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_04",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_05",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_06",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_07",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_08",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_09",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_10",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_11",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_12",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_13",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_14",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_15",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_16",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_17",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_18",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_19",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_20",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "reverse_string_decrypt_21",
+      "family": "reverse_string_decrypt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_01",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_02",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_03",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_04",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_05",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_06",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_07",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_08",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_09",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_10",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_11",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_12",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_13",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_14",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_15",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_16",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_17",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_18",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_19",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_20",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_encoding_stack_21",
+      "family": "crypto_encoding_stack",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_01",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_02",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_03",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_04",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_05",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_06",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_07",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_08",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_09",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_10",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_11",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_12",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_13",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_14",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_15",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_16",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_17",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_18",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_19",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_20",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_xor_crib_21",
+      "family": "crypto_xor_crib",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_01",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_02",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_03",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_04",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_05",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_06",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_07",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_08",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_09",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_10",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_11",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_12",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_13",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_14",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_15",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_16",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_17",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_18",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_19",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_20",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "crypto_rsa_params_21",
+      "family": "crypto_rsa_params",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_01",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_02",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_03",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_04",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_05",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_06",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_07",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_08",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_09",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_10",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_11",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_12",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_13",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_14",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_15",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_16",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_17",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_18",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_19",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_20",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_http_objects_21",
+      "family": "pcap_http_objects",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_01",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_02",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_03",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_04",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_05",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_06",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_07",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_08",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_09",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_10",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_11",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_12",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_13",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_14",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_15",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_16",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_17",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_18",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_19",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_20",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_dns_exfil_21",
+      "family": "pcap_dns_exfil",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_01",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_02",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_03",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_04",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_05",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_06",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_07",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_08",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_09",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_10",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_11",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_12",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_13",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_14",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_15",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_16",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_17",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_18",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_19",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_20",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pcap_tcp_streams_21",
+      "family": "pcap_tcp_streams",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_01",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_02",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_03",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_04",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_05",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_06",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_07",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_08",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_09",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_10",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_11",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_12",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_13",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_14",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_15",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_16",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_17",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_18",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_19",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_20",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_layers_21",
+      "family": "pdf_layers",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_01",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_02",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_03",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_04",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_05",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_06",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_07",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_08",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_09",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_10",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_11",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_12",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_13",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_14",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_15",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_16",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_17",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_18",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_19",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_20",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pdf_attachments_21",
+      "family": "pdf_attachments",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_01",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_02",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_03",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_04",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_05",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_06",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_07",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_08",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_09",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_10",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_11",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_12",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_13",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_14",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_15",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_16",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_17",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_18",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_19",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_20",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_nested_21",
+      "family": "archive_nested",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_01",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_02",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_03",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_04",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_05",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_06",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_07",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_08",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_09",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_10",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_11",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_12",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_13",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_14",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_15",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_16",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_17",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_18",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_19",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_20",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "archive_password_hints_21",
+      "family": "archive_password_hints",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_01",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_02",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_03",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_04",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_05",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_06",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_07",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_08",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_09",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_10",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_11",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_12",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_13",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_14",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_15",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_16",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_17",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_18",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_19",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_20",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "media_spectrogram_21",
+      "family": "media_spectrogram",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_01",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_02",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_03",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_04",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_05",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_06",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_07",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_08",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_09",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_10",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_11",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_12",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_13",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_14",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_15",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_16",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_17",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_18",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_19",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_20",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "sqlite_table_hunt_21",
+      "family": "sqlite_table_hunt",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_01",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_02",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_03",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_04",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_05",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_06",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_07",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_08",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_09",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_10",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_11",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_12",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_13",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_14",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_15",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_16",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_17",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_18",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_19",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_20",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "apk_manifest_strings_21",
+      "family": "apk_manifest_strings",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_01",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_02",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_03",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_04",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_05",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_06",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_07",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_08",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_09",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_10",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_11",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_12",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_13",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_14",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_15",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_16",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_17",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_18",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_19",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_20",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "pyc_decompile_21",
+      "family": "pyc_decompile",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_01",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_02",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_03",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_04",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_05",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_06",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_07",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_08",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_09",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_10",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_11",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_12",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_13",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_14",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_15",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_16",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_17",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_18",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_19",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_20",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "web_artifact_tokens_21",
+      "family": "web_artifact_tokens",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_01",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_02",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_03",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_04",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_05",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_06",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_07",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_08",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_09",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_10",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_11",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_12",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_13",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_14",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_15",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_16",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_17",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_18",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_19",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_20",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_magic_triage_21",
+      "family": "generic_magic_triage",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_01",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_02",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_03",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_04",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_05",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_06",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_07",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_08",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_09",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_10",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_11",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_12",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_13",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_14",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_15",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_16",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_17",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_18",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_19",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_20",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "generic_brace_context_21",
+      "family": "generic_brace_context",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_01",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_02",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_03",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_04",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_05",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_06",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_07",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_08",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_09",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_10",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_11",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_12",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_13",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_14",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_15",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    },
+    {
+      "id": "agent_ai_coach_16",
+      "family": "agent_ai_coach",
+      "goal": "Local CTF analysis workflow profile",
+      "maps_to": [
+        "evidence",
+        "chain",
+        "manual_tools",
+        "intermediates",
+        "ai_context"
+      ]
+    }
+  ],
+  "principle": "Agents classify challenge paths, generate local intermediate artifacts, rank evidence, and tell the human and local AI exactly what to try next."
+}

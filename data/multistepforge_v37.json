@@ -1,0 +1,14 @@
+{
+  "name": "v37 MultiStepForge",
+  "focus": [
+    "training from TAMUctf source/writeups",
+    "alternate flag formats kept as candidates not primary",
+    "timestamp forensics",
+    "QR checkerboard repair",
+    "audio/spectrogram/STFT helpers",
+    "web static source audit",
+    "Walsh-Hadamard and numeric transforms",
+    "zstd/sb3/archive recursive extraction",
+    "solve.py/readme pattern learning artifacts"
+  ]
+}

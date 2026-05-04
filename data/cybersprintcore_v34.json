@@ -1,0 +1,13 @@
+{
+  "name": "v34 CyberSprintCore",
+  "focus": [
+    "real Cyber Sprint ZIP benchmark",
+    "artifact.log reconstruction",
+    "morse->hex/url chain",
+    "time anomaly log extraction",
+    "pcap/pcapng fallback scalar extraction",
+    "dd.gz/deleted-file raw extraction",
+    "pyc constants and base64 decode",
+    "tar/tgz/zip child extraction"
+  ]
+}

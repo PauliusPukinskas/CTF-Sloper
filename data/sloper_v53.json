@@ -1,0 +1,12 @@
+{
+  "name": "CTF SLOPER v53",
+  "focus": [
+    "universal CTF coverage",
+    "audio WAV LSB",
+    "SQLite/database extraction",
+    "Office/PDF raw text extraction",
+    "source-code deobfuscation",
+    "ZIP password unlock from clue wordlist",
+    "coverage matrix"
+  ]
+}

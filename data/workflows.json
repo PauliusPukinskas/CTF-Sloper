@@ -1,0 +1,32 @@
+{
+  "target_flag": "ctf_cs{...}",
+  "principle": "Every tool output is parsed, decoded, scored, and added to Evidence Board.",
+  "project_tabs": [
+    "Overview",
+    "Evidence Board",
+    "Workflow",
+    "Files",
+    "AI",
+    "Logs"
+  ],
+  "file_tabs": [
+    "Summary",
+    "Chain",
+    "Preview",
+    "Tools",
+    "Strings",
+    "Decoders",
+    "Outputs",
+    "Commands"
+  ],
+  "coverage": [
+    "image/stego",
+    "pcap/network",
+    "pdf/office",
+    "archives",
+    "binary/rev",
+    "media",
+    "text/encoding",
+    "sqlite/apk/python bytecode"
+  ]
+}

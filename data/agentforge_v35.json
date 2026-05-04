@@ -1,0 +1,11 @@
+{
+  "name": "v35 AgentForge",
+  "focus": [
+    "no benchmark tabs in normal UI",
+    "aggressive multi-pass local agents",
+    "recursive child artifact analysis",
+    "evidence scoring",
+    "agent trace",
+    "stronger category-specific workflows"
+  ]
+}
