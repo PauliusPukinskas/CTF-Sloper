@@ -418,8 +418,11 @@ def _install_final_runtime_fixes(mod, inside_projects, inside_project) -> None:
         arr = []
         for d in sorted([x for x in mod.PROJECTS.iterdir() if x.is_dir()], key=lambda x: x.stat().st_mtime if x.exists() else 0, reverse=True):
             meta = mod.jread(d / "project.json", {}) or {"id": d.name, "title": d.name}
-            rep = mod.jread(d / "report.json", {})
             pid = meta.get("id") or d.name
+            if hasattr(mod, "sl108_postprocess_report_file") and (d / "report.json").exists():
+                rep = mod.sl108_postprocess_report_file(pid)
+            else:
+                rep = mod.jread(d / "report.json", {})
             job = _job_copy(pid)
             meta.update({
                 "progress": job.get("progress", 100 if rep else 0),
@@ -433,9 +436,13 @@ def _install_final_runtime_fixes(mod, inside_projects, inside_project) -> None:
     def get_project(pid: str):
         root = mod.pdir(pid)
         log_path = root / "events.log"
+        if hasattr(mod, "sl108_postprocess_report_file"):
+            rep = mod.sl108_postprocess_report_file(pid)
+        else:
+            rep = mod.jread(mod.report_path(pid), {})
         return {
             "project": mod.jread(mod.meta_path(pid), {}),
-            "report": mod.jread(mod.report_path(pid), {}),
+            "report": rep,
             "job": _job_copy(pid),
             "log": log_path.read_text(encoding="utf-8", errors="replace") if log_path.exists() else "",
         }
@@ -562,4 +569,9 @@ def _install_profile_preferences(mod) -> None:
 def boot():
     legacy = importlib.import_module("sloper_legacy")
     install(legacy)
+    try:
+        from .hardening_v108 import apply as _apply_hardening_v108
+        _apply_hardening_v108(legacy)
+    except Exception as e:
+        print("warning: hardening_v108 failed:", e)
     return legacy
