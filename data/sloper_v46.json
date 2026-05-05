@@ -1,0 +1,12 @@
+{
+  "name": "CTF SLOPER v46",
+  "focus": [
+    "Cardan/Fleissner grille project crypto",
+    "sha256-answer tasks",
+    "stronger PCAP file extraction and covert decoding",
+    "multi-file message+key workflows",
+    "better archive project mode boundaries",
+    "more false-positive suppression",
+    "v45 regression preservation"
+  ]
+}

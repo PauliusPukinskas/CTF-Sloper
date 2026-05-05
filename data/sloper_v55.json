@@ -1,0 +1,11 @@
+{
+  "name": "CTF SLOPER v55",
+  "focus": [
+    "recursive decode graph",
+    "base64/base32/base85/hex/binary/octal/decimal/url decode",
+    "zlib/gzip/bz2/lzma decompression candidates",
+    "generic XOR byte candidates",
+    "known flag format crib checks",
+    "coverage matrix upgrades"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "CTF SLOPER v45",
+  "focus": [
+    "TGZ/TAR recursive extraction",
+    "EXIF comment Morse password chaining",
+    "encrypted embedded ZIP extraction",
+    "FLAG: raw body to ctf_cs wrapper",
+    "archive password propagation inside same file",
+    "AppleDouble noise filtering",
+    "panorama chain regression"
+  ]
+}

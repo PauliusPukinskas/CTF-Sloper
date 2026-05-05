@@ -1,0 +1,10 @@
+{
+  "name": "v39 ReverseForge",
+  "focus": [
+    "static immediate-array reverse solving",
+    "ELF/PE disassembly array grouping",
+    "XOR/ADD/SUB/ROL/ROR/NOT brute over hidden arrays",
+    "brace-body to ctf_cs wrapper promotion",
+    "calculus challenge regression"
+  ]
+}

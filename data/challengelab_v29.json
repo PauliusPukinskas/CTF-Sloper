@@ -1,0 +1,17 @@
+{
+  "name": "v29 ChallengeLab",
+  "focus": [
+    "local self-check regression suite",
+    "batch challenge evaluation",
+    "better unresolved challenge review",
+    "clearer human workflow",
+    "strict false-positive control"
+  ],
+  "self_checks": [
+    "multi-layer base64/hex/base64",
+    "aligned repeating XOR crib",
+    "JWT payload",
+    "PNG alternate LSB bit ordering",
+    "nested ZIP child"
+  ]
+}

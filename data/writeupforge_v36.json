@@ -1,0 +1,12 @@
+{
+  "name": "v36 WriteupForge",
+  "focus": [
+    "writeup-derived solve agents",
+    "numeric table static extraction",
+    "double coefficient little-endian ASCII heuristics",
+    "Piet grid extraction from channel-only stego",
+    "tile puzzle review aids",
+    "strict evidence-based flag promotion",
+    "less random-string false positives"
+  ]
+}

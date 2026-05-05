@@ -1,0 +1,13 @@
+{
+  "name": "CTF SLOPER v43",
+  "focus": [
+    "recursive child artifact autopass",
+    "project-wide clue propagation",
+    "archive/stego retry after all files analyzed",
+    "stronger base/crypto decode chain",
+    "QR/OCR/visual triage improvements",
+    "PCAP covert channel improvements",
+    "binary false-positive suppression",
+    "human evidence timeline"
+  ]
+}

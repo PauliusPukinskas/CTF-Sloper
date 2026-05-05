@@ -1,0 +1,141 @@
+{
+  "ok": true,
+  "pack": "/tmp/sloper_pack_v114",
+  "total_challenges": 3,
+  "known_expected": 3,
+  "solved": 3,
+  "settings": {
+    "flag_format": "ctf_cs",
+    "attack_preset": "deep",
+    "difficulty": "multi_step",
+    "max_depth": 5,
+    "max_artifacts": 3000
+  },
+  "results": [
+    {
+      "challenge": "docx",
+      "path": "/tmp/sloper_pack_v114/docx",
+      "files": 1,
+      "expected": "ctf_cs{pack_docx_01}",
+      "solved": true,
+      "elapsed_ms": 3380,
+      "top_flags": [
+        "ctf_cs{pack_docx_01}"
+      ],
+      "raw_top_flags": [
+        "ctf_cs{pack_docx_01}"
+      ],
+      "evidence": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "candidates_seen": 1,
+        "promoted": 1,
+        "related": 0,
+        "updated": 1777929977,
+        "v114_layer": true
+      },
+      "triage": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "updated": 1777929978,
+        "best_flag": "ctf_cs{pack_docx_01}",
+        "best_confidence": 99,
+        "high_confidence": 1,
+        "medium_confidence": 0,
+        "low_or_related": 687,
+        "artifact_kinds": {
+          "v114_manifest": 1,
+          "office_text": 1,
+          "decoded_payload": 30,
+          "archive_member": 1,
+          "v113_manifest": 1
+        },
+        "operator_hint": "Trust high confidence only when chain/source makes sense; inspect related candidates for hard red-herring challenges."
+      },
+      "artifact_count": 34
+    },
+    {
+      "challenge": "sqlite",
+      "path": "/tmp/sloper_pack_v114/sqlite",
+      "files": 1,
+      "expected": "ctf_cs{pack_sqlite_02}",
+      "solved": true,
+      "elapsed_ms": 456,
+      "top_flags": [
+        "ctf_cs{pack_sqlite_02}"
+      ],
+      "raw_top_flags": [
+        "ctf_cs{pack_sqlite_02}"
+      ],
+      "evidence": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "candidates_seen": 1,
+        "promoted": 1,
+        "related": 0,
+        "updated": 1777929979,
+        "v114_layer": true
+      },
+      "triage": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "updated": 1777929979,
+        "best_flag": "ctf_cs{pack_sqlite_02}",
+        "best_confidence": 99,
+        "high_confidence": 1,
+        "medium_confidence": 0,
+        "low_or_related": 25,
+        "artifact_kinds": {
+          "flag_candidate": 26,
+          "v114_manifest": 1,
+          "sqlite_text": 1,
+          "decoded_payload": 5,
+          "v113_manifest": 1
+        },
+        "operator_hint": "Trust high confidence only when chain/source makes sense; inspect related candidates for hard red-herring challenges."
+      },
+      "artifact_count": 34
+    },
+    {
+      "challenge": "wav",
+      "path": "/tmp/sloper_pack_v114/wav",
+      "files": 1,
+      "expected": "ctf_cs{pack_wav_03}",
+      "solved": true,
+      "elapsed_ms": 112,
+      "top_flags": [
+        "ctf_cs{pack_wav_03}"
+      ],
+      "raw_top_flags": [
+        "ctf_cs{pack_wav_03}"
+      ],
+      "evidence": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "candidates_seen": 1,
+        "promoted": 1,
+        "related": 0,
+        "updated": 1777929979,
+        "v114_layer": true
+      },
+      "triage": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "updated": 1777929979,
+        "best_flag": "ctf_cs{pack_wav_03}",
+        "best_confidence": 99,
+        "high_confidence": 1,
+        "medium_confidence": 0,
+        "low_or_related": 25,
+        "artifact_kinds": {
+          "v114_manifest": 1,
+          "wav_lsb_text": 1,
+          "decoded_payload": 5,
+          "v113_manifest": 1
+        },
+        "operator_hint": "Trust high confidence only when chain/source makes sense; inspect related candidates for hard red-herring challenges."
+      },
+      "artifact_count": 8
+    }
+  ]
+}

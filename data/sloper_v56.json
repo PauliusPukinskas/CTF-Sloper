@@ -1,0 +1,10 @@
+{
+  "name": "CTF SLOPER v56",
+  "focus": [
+    "known-plaintext XOR crib solver",
+    "multi-file XOR/ADD/SUB project solver",
+    "image bitplane contact sheets",
+    "JWT/token decoder",
+    "project-level artifact chaining"
+  ]
+}

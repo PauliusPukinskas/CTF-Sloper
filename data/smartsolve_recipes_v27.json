@@ -1,0 +1,63 @@
+{
+  "name": "v27 SmartSolve recipe engine",
+  "recipes": {
+    "image_lsb_visual": [
+      "filters",
+      "bitplanes",
+      "lsb_text",
+      "OCR/QR",
+      "rank and verify"
+    ],
+    "image_payload": [
+      "metadata",
+      "binwalk",
+      "foremost",
+      "archive child queue"
+    ],
+    "pcap_exfil": [
+      "protocol hierarchy",
+      "HTTP objects",
+      "DNS labels/TXT",
+      "TCP streams",
+      "decode streams"
+    ],
+    "binary_string_decrypt": [
+      "strings",
+      "UTF16 strings",
+      "rodata",
+      "imports",
+      "XOR/ROT/Atbash/decode"
+    ],
+    "crypto_encoding_stack": [
+      "detect encoding blobs",
+      "recursive decode",
+      "XOR crib",
+      "RSA/JWT/hash extraction"
+    ],
+    "pdf_layers": [
+      "text layer",
+      "attachments",
+      "images",
+      "metadata",
+      "child analysis"
+    ],
+    "archive_nested": [
+      "list/comment",
+      "extract",
+      "password hints",
+      "child analysis"
+    ],
+    "media_signal": [
+      "metadata",
+      "spectrogram",
+      "strings/binwalk",
+      "child analysis"
+    ]
+  },
+  "sources": [
+    "CTF writeup patterns: stego via zsteg/binwalk/steghide/OCR/QR",
+    "PCAP via tshark protocol hierarchy, HTTP objects, DNS, TCP streams",
+    "reverse via strings/rodata/imports/radare2/UPX/XOR",
+    "crypto via encoding stacks, XOR, RSA params, JWT/hashes"
+  ]
+}

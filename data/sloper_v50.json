@@ -1,0 +1,13 @@
+{
+  "name": "CTF SLOPER v50",
+  "focus": [
+    "transformation-first pipeline",
+    "reverse-focused transformed binaries",
+    "XOR/ADD/SUB/NOT/ROL/ROR byte transforms",
+    "magic detection after transformation",
+    "child artifact autopass",
+    "rodata/byte-array extraction",
+    "solver plan and transform graph",
+    "human-friendly transformation review"
+  ]
+}

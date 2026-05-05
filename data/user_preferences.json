@@ -1,0 +1,32 @@
+{
+  "profile_name": "Operator",
+  "theme": "dark",
+  "accent_color": "#35d07f",
+  "tool_color": "#35d07f",
+  "flag_format": "ctf_cm",
+  "flag_prefix": "ctf_cm",
+  "custom_flag_regex": "",
+  "attack_preset": "deep",
+  "difficulty": "hard",
+  "max_depth": 5,
+  "max_artifacts": 3000,
+  "max_runtime_seconds": 120,
+  "enabled_categories": {
+    "crypto": true,
+    "stego": true,
+    "forensics": true,
+    "reversing": true,
+    "web": true,
+    "osint": true,
+    "misc": true,
+    "archives": true,
+    "network": true,
+    "image": true,
+    "audio": true
+  },
+  "artifact_view": "clean",
+  "show_project_counter": true,
+  "flag_label": "ctf_cm{...}",
+  "flag_regex": "(?is)\\bctf_cm\\{[^{}\\r\\n]{1,220}\\}",
+  "v111_profile": true
+}

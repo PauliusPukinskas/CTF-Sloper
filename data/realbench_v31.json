@@ -1,0 +1,12 @@
+{
+  "name": "v31 RealBench",
+  "focus": [
+    "batch import/split challenge zips",
+    "real Cyber Sprint folder/category patterns",
+    "gzip/raw disk image artifacts",
+    "pcap fallback extraction",
+    "pyc static analysis",
+    "stronger non-format answer candidates",
+    "review-first UI"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "v24 AutoSweep",
+  "mode": "aggressive_bounded",
+  "goal": "Automatically run relevant local tools per file type, then decode/chain/transform outputs.",
+  "default_passes": 4,
+  "per_file_tool_cap": 80,
+  "timeout_per_tool_seconds": 180,
+  "auto_suites": [
+    "quick",
+    "deep"
+  ],
+  "image_auto": [
+    "filters",
+    "channels",
+    "bitplanes",
+    "LSB RGB/BGR",
+    "OCR",
+    "QR",
+    "metadata",
+    "zsteg",
+    "binwalk",
+    "foremost",
+    "steghide/stegseek if installed"
+  ],
+  "output_pipeline": [
+    "tool_output",
+    "evidence_hunter",
+    "recursive_decoders",
+    "transform_agents",
+    "intermediate_files",
+    "project_evidence"
+  ]
+}

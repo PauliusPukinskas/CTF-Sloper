@@ -1,0 +1,11 @@
+{
+  "name": "CTF SLOPER v51",
+  "focus": [
+    "Cyber Sprint ZIP non-web/osint coverage",
+    "PYC backdoor constants/base64/CWE",
+    "recursive ZIP path-name treasure solver",
+    "pure Python PCAP parser and covert-field extraction",
+    "advanced PNG alpha/hue/rainbow/pixel-order artifacts",
+    "coverage/solver-plan report"
+  ]
+}

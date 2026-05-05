@@ -1,0 +1,13 @@
+{
+  "name": "CTF SLOPER v48",
+  "focus": [
+    "consistent folder/package naming",
+    "startup syntax self-check",
+    "image palette and bitstream stego",
+    "PNG/JPEG channel and LSB text artifacts",
+    "bounded PCAP field extraction fallback",
+    "better manual review artifacts",
+    "more strict promoted flag behavior",
+    "human-friendly evidence cards"
+  ]
+}

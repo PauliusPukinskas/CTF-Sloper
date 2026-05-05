@@ -1,0 +1,243 @@
+{
+  "ok": true,
+  "pack": "/mnt/data/cyber_stage/Cyber Sprint 2026 1 etapas",
+  "total_challenges": 4,
+  "discovered_challenges": 24,
+  "chunk_offset": 0,
+  "chunk_limit": 4,
+  "known_expected": 0,
+  "solved": 0,
+  "settings": {
+    "flag_format": "ctf_cs",
+    "attack_preset": "deep",
+    "difficulty": "multi_step",
+    "max_depth": 6,
+    "max_artifacts": 3000
+  },
+  "results": [
+    {
+      "challenge": "CryptoMess",
+      "path": "/mnt/data/cyber_stage/Cyber Sprint 2026 1 etapas/Crypto/CryptoMess",
+      "files": 2,
+      "expected": "",
+      "solved": null,
+      "elapsed_ms": 285,
+      "top_flags": [
+        "ctf_cs{17_15_v3ry_l0ud_1n_7h3_l4b}",
+        "ctf_cs{r3v_5u0l_y_n1_dl_3h72P}",
+        "ctf_cs{SsB7CG}",
+        "ctf_cs{17_1r3v_5y_l0u_n1_d7h3_l2P}",
+        "ctf_cs{w=a47dy5}",
+        "ctf_cs{w=a497ou7}",
+        "ctf_cs{w=a47uo79}",
+        "ctf_cs{X_aakjnSy1F1CO8H_}",
+        "ctf_cs{oh___1pH}",
+        "ctf_cs{j+OP_n03_}"
+      ],
+      "raw_top_flags": [
+        "ctf_cs{17_15_v3ry_l0ud_1n_7h3_l4b}",
+        "ctf_cs{r3v_5u0l_y_n1_dl_3h72P}",
+        "ctf_cs{SsB7CG}",
+        "ctf_cs{17_1r3v_5y_l0u_n1_d7h3_l2P}",
+        "ctf_cs{w=a47dy5}",
+        "ctf_cs{w=a497ou7}",
+        "ctf_cs{w=a47uo79}",
+        "ctf_cs{X_aakjnSy1F1CO8H_}",
+        "ctf_cs{oh___1pH}",
+        "ctf_cs{j+OP_n03_}"
+      ],
+      "evidence": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "candidates_seen": 35,
+        "promoted": 35,
+        "related": 0,
+        "updated": 1777981249,
+        "v114_layer": true
+      },
+      "triage": {
+        "enabled": true,
+        "version": "v117-real-corpus-triage",
+        "updated": 1777981250,
+        "best_flag": "ctf_cs{17_15_v3ry_l0ud_1n_7h3_l4b}",
+        "best_score": 3980,
+        "best_verdict": "trusted",
+        "trusted": 8,
+        "promising": 104,
+        "manual_review": 25,
+        "suppressed_noise": 129,
+        "operator_hint": "v117 suppresses task placeholders, timestamps, metadata IDs, and intermediate route text; SHA/hash candidates are promoted when the task asks for them.",
+        "isolation": "subprocess-pgrp"
+      },
+      "artifact_count": 18
+    },
+    {
+      "challenge": "Prane#U0161imas ir raktas",
+      "path": "/mnt/data/cyber_stage/Cyber Sprint 2026 1 etapas/Crypto/Prane#U0161imas ir raktas",
+      "files": 2,
+      "expected": "",
+      "solved": null,
+      "elapsed_ms": 3231,
+      "top_flags": [
+        "ctf_cs{61fb4918171a5cda8dea5874e645a8c035c83c3ef86da134f0302cfadc8978f3}",
+        "ctf_cs{dd26b69ca701638fe92a0f6c681bba9803a8782dce26aa4f8644237c6460f817}",
+        "ctf_cs{0a73a14f5ab51888eb7a2381af76fc9b7ec1c7c00d6e84a648a5b2dcc341bdce}",
+        "ctf_cs{57ef31de0bfba16000a425b8cfa6e8b27f03dfb29c3eccd87257579d346dea93}",
+        "ctf_cs{bf3b110426e6cee5c8972590ffbc839575a63e201130b9fcca08cd8cf9e5eeb5}",
+        "ctf_cs{48c033204f5d4fdc7bf9d0a83f0e8d1f96f1720742ebfef5ef1005f49ba6d6e7}",
+        "ctf_cs{5f90307da83c92cf37afa52b17c1eae12cfef4b9bb40793aff425735730652cf}",
+        "ctf_cs{1caf8aef5511f032a515f384498fd1115da8c0407eb9e875baef86147fb41535}",
+        "ctf_cs{302d197a559aadcf2d5116fc7cf3afa2652e194a7ea3df6374436a6e77cbc715}",
+        "ctf_cs{1cb3a6240c83632912654cf6d37f9fa32644ca9ed403bb838cb78120d4f27812}"
+      ],
+      "raw_top_flags": [
+        "ctf_cs{61fb4918171a5cda8dea5874e645a8c035c83c3ef86da134f0302cfadc8978f3}",
+        "ctf_cs{dd26b69ca701638fe92a0f6c681bba9803a8782dce26aa4f8644237c6460f817}",
+        "ctf_cs{0a73a14f5ab51888eb7a2381af76fc9b7ec1c7c00d6e84a648a5b2dcc341bdce}",
+        "ctf_cs{57ef31de0bfba16000a425b8cfa6e8b27f03dfb29c3eccd87257579d346dea93}",
+        "ctf_cs{bf3b110426e6cee5c8972590ffbc839575a63e201130b9fcca08cd8cf9e5eeb5}",
+        "ctf_cs{48c033204f5d4fdc7bf9d0a83f0e8d1f96f1720742ebfef5ef1005f49ba6d6e7}",
+        "ctf_cs{5f90307da83c92cf37afa52b17c1eae12cfef4b9bb40793aff425735730652cf}",
+        "ctf_cs{1caf8aef5511f032a515f384498fd1115da8c0407eb9e875baef86147fb41535}",
+        "ctf_cs{302d197a559aadcf2d5116fc7cf3afa2652e194a7ea3df6374436a6e77cbc715}",
+        "ctf_cs{1cb3a6240c83632912654cf6d37f9fa32644ca9ed403bb838cb78120d4f27812}"
+      ],
+      "evidence": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "candidates_seen": 100,
+        "promoted": 100,
+        "related": 0,
+        "updated": 1777981254,
+        "v114_layer": true
+      },
+      "triage": {
+        "enabled": true,
+        "version": "v117-real-corpus-triage",
+        "updated": 1777981256,
+        "best_flag": "ctf_cs{61fb4918171a5cda8dea5874e645a8c035c83c3ef86da134f0302cfadc8978f3}",
+        "best_score": 4510,
+        "best_verdict": "trusted",
+        "trusted": 50,
+        "promising": 82,
+        "manual_review": 48,
+        "suppressed_noise": 130,
+        "operator_hint": "v117 suppresses task placeholders, timestamps, metadata IDs, and intermediate route text; SHA/hash candidates are promoted when the task asks for them.",
+        "isolation": "subprocess-pgrp"
+      },
+      "artifact_count": 200
+    },
+    {
+      "challenge": "#U012etartinas herbas",
+      "path": "/mnt/data/cyber_stage/Cyber Sprint 2026 1 etapas/Forensics/#U012etartinas herbas",
+      "files": 2,
+      "expected": "",
+      "solved": null,
+      "elapsed_ms": 7464,
+      "top_flags": [
+        "ctf_cs{mo20ln8p}",
+        "ctf_cs{jt0bpm6eo}",
+        "ctf_cs{2026-02-08T18:12:32}",
+        "ctf_cs{33l2ti.l}",
+        "ctf_cs{mykk8re/}",
+        "ctf_cs{WDZ8YMHQ}",
+        "ctf_cs{FHV+GT6XB}",
+        "ctf_cs{w_+5TEhYl_aD91S}",
+        "ctf_cs{2026-02-08T18:12:32+00:00}",
+        "ctf_cs{2026-02-08T18:12:32+00:00D}"
+      ],
+      "raw_top_flags": [
+        "ctf_cs{mo20ln8p}",
+        "ctf_cs{jt0bpm6eo}",
+        "ctf_cs{2026-02-08T18:12:32}",
+        "ctf_cs{33l2ti.l}",
+        "ctf_cs{mykk8re/}",
+        "ctf_cs{WDZ8YMHQ}",
+        "ctf_cs{FHV+GT6XB}",
+        "ctf_cs{w_+5TEhYl_aD91S}",
+        "ctf_cs{2026-02-08T18:12:32+00:00}",
+        "ctf_cs{2026-02-08T18:12:32+00:00D}"
+      ],
+      "evidence": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "candidates_seen": 120,
+        "promoted": 120,
+        "related": 0,
+        "updated": 1777981266,
+        "v114_layer": true
+      },
+      "triage": {
+        "enabled": true,
+        "version": "v117-real-corpus-triage",
+        "updated": 1777981266,
+        "best_flag": "ctf_cs{mo20ln8p}",
+        "best_score": 1930,
+        "best_verdict": "trusted",
+        "trusted": 7,
+        "promising": 125,
+        "manual_review": 4,
+        "suppressed_noise": 129,
+        "operator_hint": "v117 suppresses task placeholders, timestamps, metadata IDs, and intermediate route text; SHA/hash candidates are promoted when the task asks for them.",
+        "isolation": "subprocess-pgrp"
+      },
+      "artifact_count": 7
+    },
+    {
+      "challenge": "Dingusi ataskaita",
+      "path": "/mnt/data/cyber_stage/Cyber Sprint 2026 1 etapas/Forensics/Dingusi ataskaita",
+      "files": 2,
+      "expected": "",
+      "solved": null,
+      "elapsed_ms": 4067,
+      "top_flags": [
+        "ctf_cs{d3l3t3d_n0t_g0n3}",
+        "ctf_cs{D5CDD505-2E9C-101B-9397-08002B2CF9AE}",
+        "ctf_cs{TECHVLN-Q1-2025-STRAT-001}",
+        "ctf_cs{Q5PQQ505-2R9P-101O-9397-08002O2PS9NR}",
+        "ctf_cs{xmlns:vt=}",
+        "ctf_cs{E5DEE505-2F9D-101C-9397-08002C2DG9BF}",
+        "ctf_cs{F5EFF505-2G9E-101D-9397-08002D2EH9CG}",
+        "ctf_cs{G5FGG505-2H9F-101E-9397-08002E2FI9DH}",
+        "ctf_cs{H5GHH505-2I9G-101F-9397-08002F2GJ9EI}",
+        "ctf_cs{I5HII505-2J9H-101G-9397-08002G2HK9FJ}"
+      ],
+      "raw_top_flags": [
+        "ctf_cs{d3l3t3d_n0t_g0n3}",
+        "ctf_cs{D5CDD505-2E9C-101B-9397-08002B2CF9AE}",
+        "ctf_cs{TECHVLN-Q1-2025-STRAT-001}",
+        "{Q5PQQ505-2R9P-101O-9397-08002O2PS9NR}",
+        "ctf_cs{xmlns:vt=}",
+        "{E5DEE505-2F9D-101C-9397-08002C2DG9BF}",
+        "{F5EFF505-2G9E-101D-9397-08002D2EH9CG}",
+        "{G5FGG505-2H9F-101E-9397-08002E2FI9DH}",
+        "{H5GHH505-2I9G-101F-9397-08002F2GJ9EI}",
+        "{I5HII505-2J9H-101G-9397-08002G2HK9FJ}"
+      ],
+      "evidence": {
+        "enabled": true,
+        "version": "v114-evidence-triage",
+        "candidates_seen": 48,
+        "promoted": 48,
+        "related": 0,
+        "updated": 1777981273,
+        "v114_layer": true
+      },
+      "triage": {
+        "enabled": true,
+        "version": "v117-real-corpus-triage",
+        "updated": 1777981274,
+        "best_flag": "ctf_cs{d3l3t3d_n0t_g0n3}",
+        "best_score": 3840,
+        "best_verdict": "trusted",
+        "trusted": 1,
+        "promising": 63,
+        "manual_review": 10,
+        "suppressed_noise": 73,
+        "operator_hint": "v117 suppresses task placeholders, timestamps, metadata IDs, and intermediate route text; SHA/hash candidates are promoted when the task asks for them.",
+        "isolation": "subprocess-pgrp"
+      },
+      "artifact_count": 45
+    }
+  ]
+}

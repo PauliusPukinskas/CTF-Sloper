@@ -1,0 +1,11 @@
+{
+  "name": "v33 FlowForge",
+  "focus": [
+    "iterative child artifact analysis",
+    "statement-aware scoring",
+    "more classical decoders",
+    "candidate-to-flag review helper",
+    "autopilot review dashboard",
+    "140-case benchmark"
+  ]
+}

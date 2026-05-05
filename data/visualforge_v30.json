@@ -1,0 +1,17 @@
+{
+  "name": "v30 VisualForge",
+  "primary_promote_format": "ctf_cs{...}",
+  "answer_candidates": "non-flag answers are collected separately, not promoted as flags",
+  "visual_lab": [
+    "rotations",
+    "flips",
+    "channels",
+    "HSV",
+    "thresholds",
+    "edges",
+    "high-pass",
+    "emboss",
+    "contact sheets",
+    "OCR hooks"
+  ]
+}

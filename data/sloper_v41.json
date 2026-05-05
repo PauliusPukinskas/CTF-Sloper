@@ -1,0 +1,14 @@
+{
+  "name": "CTF SLOPER v41",
+  "focus": [
+    "clean professional green UI",
+    "manual + automated workflow clarity",
+    "robust embedded payload extraction",
+    "local-header DOCX/ZIP carving",
+    "artifact log reconstruction",
+    "time anomaly log extraction",
+    "pcap scalar field decoding",
+    "pyc constant/base64/CWE extraction",
+    "more strict flag promotion"
+  ]
+}
