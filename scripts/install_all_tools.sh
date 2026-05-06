@@ -1,99 +1,263 @@
 #!/usr/bin/env bash
 set -euo pipefail
-echo "[CTF SLOPER] Python syntax self-check..."
-timeout 45 python3 -m py_compile app.py || { echo "[CTF SLOPER] app.py syntax error"; exit 1; }
-echo "[CTF SLOPER] app.py syntax OK."
 
-echo "[1/8] Checking sudo..."
-if ! command -v sudo >/dev/null 2>&1; then
-  echo "sudo not found. Run this script as root or install sudo first."
-  exit 1
-fi
+# ─── Colors & Helpers ─────────────────────────────────────────────────────────
+RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
+CYAN='\033[0;36m'; BOLD='\033[1m'; DIM='\033[2m'; RESET='\033[0m'
 
-echo "[2/8] Installing Debian/Ubuntu packages..."
-sudo bash -lc 'export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get install -y \
-  python3 python3-pip python3-venv python3-dev python3-setuptools python3-wheel \
-  build-essential cmake make gcc g++ git curl wget unzip zip p7zip-full p7zip-rar unrar-free \
-  file binutils binutils-multiarch gdb ltrace strace patchelf elfutils checksec \
-  binwalk foremost sleuthkit bulk-extractor exiftool steghide outguess \
-  imagemagick ffmpeg sox libimage-exiftool-perl \
-  tesseract-ocr tesseract-ocr-lit tesseract-ocr-eng zbar-tools \
-  tshark tcpdump wireshark-common netcat-openbsd nmap \
-  poppler-utils qpdf mupdf-tools \
-  sqlite3 jq ripgrep tree xxd bsdmainutils dos2unix \
-  ruby ruby-dev gem \
-  apktool jadx default-jdk \
-  nodejs npm \
-  libssl-dev libffi-dev libmagic-dev libzbar0 libjpeg-dev zlib1g-dev libbz2-dev liblzma-dev \
-  || true'
+STEP_TOTAL=8
+step_start=0
 
-echo "[3/8] Creating Python virtualenv..."
-python3 -m venv .venv || {
-  echo "python3-venv missing. Trying to install python3-venv..."
-  sudo apt-get install -y python3-venv
-  python3 -m venv .venv
+ok()      { echo -e "  ${GREEN}✔${RESET}  $1"; }
+skip()    { echo -e "  ${DIM}–  $1 (already installed)${RESET}"; }
+miss()    { echo -e "  ${RED}✘${RESET}  $1"; }
+info()    { echo -e "  ${YELLOW}→${RESET}  $1"; }
+xfail()   { echo -e "  ${RED}✘  FAILED: $1${RESET}"; }
+section() {
+  local n="$1" title="$2"
+  echo ""
+  echo -e "${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
+  echo -e "${BOLD} Step ${n}/${STEP_TOTAL} — ${title}${RESET}"
+  echo -e "${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
+  step_start=$SECONDS
 }
+step_done() {
+  local elapsed=$(( SECONDS - step_start ))
+  echo -e "  ${DIM}Completed in ${elapsed}s${RESET}"
+}
+
+pip_pkg() {
+  local pkg="$1"
+  local base; base="${pkg%%[>=<!]*}"
+  if python -m pip show "$base" &>/dev/null 2>&1; then
+    skip "$base"
+  else
+    info "pip install $base"
+    python -m pip install --quiet --upgrade-strategy only-if-needed "$pkg" \
+      && ok "$base" || xfail "$base"
+  fi
+}
+
+# ─── Banner ───────────────────────────────────────────────────────────────────
+echo ""
+echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════╗${RESET}"
+echo -e "${BOLD}${CYAN}║         CTF SLOPER — Tool Installer v2           ║${RESET}"
+echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════╝${RESET}"
+echo -e "  ${DIM}$(date)${RESET}"
+
+info "Syntax-checking app.py..."
+timeout 45 python3 -m py_compile app.py \
+  && ok "app.py syntax OK" \
+  || { xfail "app.py has syntax errors — aborting"; exit 1; }
+
+# ─── Step 1 ───────────────────────────────────────────────────────────────────
+section "1" "Checking sudo"
+if command -v sudo >/dev/null 2>&1; then
+  ok "sudo at $(command -v sudo)"
+else
+  xfail "sudo not found — run as root or install sudo first"; exit 1
+fi
+step_done
+
+# ─── Step 2 ───────────────────────────────────────────────────────────────────
+section "2" "Debian/Ubuntu system packages"
+info "Writing fast-apt config..."
+sudo bash -c 'cat > /etc/apt/apt.conf.d/99ctf-fast <<EOF
+Acquire::Queue-Mode "host";
+Acquire::http::Timeout "30";
+Acquire::https::Timeout "30";
+Acquire::Retries "3";
+APT::Install-Recommends "false";
+APT::Install-Suggests "false";
+EOF'
+
+info "Running apt-get update..."
+sudo apt-get update -q
+export DEBIAN_FRONTEND=noninteractive
+
+apt_group() {
+  local label="$1"; shift
+  echo ""
+  echo -e "  ${CYAN}▸ ${label}${RESET}"
+  for pkg in "$@"; do
+    if dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q "install ok installed"; then
+      skip "$pkg"
+    else
+      info "apt install $pkg"
+      sudo apt-get install -y -q "$pkg" 2>&1 \
+        | grep -E "^(Get:|Unpacking|Setting up)" | sed 's/^/        /' || true
+      ok "$pkg"
+    fi
+  done
+}
+
+apt_group "Python"          python3 python3-pip python3-venv python3-dev python3-setuptools python3-wheel
+apt_group "Build tools"     build-essential cmake make gcc g++ git curl wget unzip zip p7zip-full p7zip-rar unrar-free
+apt_group "Binary / Debug"  file binutils binutils-multiarch gdb ltrace strace patchelf elfutils checksec
+apt_group "Forensics"       binwalk foremost sleuthkit bulk-extractor exiftool steghide outguess
+apt_group "Media"           imagemagick ffmpeg sox libimage-exiftool-perl tesseract-ocr tesseract-ocr-lit tesseract-ocr-eng zbar-tools
+apt_group "Network"         tshark tcpdump wireshark-common netcat-openbsd nmap
+apt_group "PDF / Docs"      poppler-utils qpdf mupdf-tools
+apt_group "Utils"           sqlite3 jq ripgrep tree xxd bsdmainutils dos2unix
+apt_group "Ruby"            ruby ruby-dev gem
+apt_group "Java / Android"  apktool jadx default-jdk
+apt_group "Node.js"         nodejs npm
+apt_group "Dev libs"        libssl-dev libffi-dev libmagic-dev libzbar0 libjpeg-dev zlib1g-dev libbz2-dev liblzma-dev
+step_done
+
+# ─── Step 3 ───────────────────────────────────────────────────────────────────
+section "3" "Python virtual environment"
+if [ ! -d .venv ]; then
+  info "Creating .venv..."
+  python3 -m venv .venv || {
+    info "python3-venv missing, installing..."
+    sudo apt-get install -y python3-venv
+    python3 -m venv .venv
+  }
+  ok "Virtualenv created at .venv/"
+else
+  skip ".venv/ (already exists)"
+fi
 source .venv/bin/activate
-python -m pip install --upgrade pip setuptools wheel
+info "Upgrading pip / setuptools / wheel..."
+python -m pip install --upgrade pip setuptools wheel -q
+ok "pip $(pip --version | awk '{print $2}')"
+step_done
 
-echo "[4/8] Installing Python CTF libraries..."
-python -m pip install --upgrade \
-  fastapi uvicorn python-multipart aiofiles jinja2 \
-  pillow numpy scipy scikit-image imageio opencv-python-headless matplotlib networkx \
-  pycryptodome cryptography sympy z3-solver gmpy2 \
-  scapy dpkt pyshark construct kaitaistruct \
-  pwntools capstone unicorn ropper ROPGadget lief pefile python-magic yara-python \
-  pyjwt requests beautifulsoup4 lxml html5lib \
-  pypdf pdfplumber pymupdf \
-  py7zr rarfile zstandard lz4 brotli \
-  stegano bitstring bitarray \
-  oletools python-docx openpyxl \
-  volatility3 \
-  rich textual tqdm colorama \
-  decompyle3 uncompyle6 xdis || true
+# ─── Step 4 ───────────────────────────────────────────────────────────────────
+section "4" "Python CTF libraries"
+echo -e "  ${DIM}Skipping packages already installed${RESET}"
 
-echo "[5/8] Installing Ruby stego tools..."
-sudo gem install zsteg || true
+echo -e "\n  ${CYAN}▸ Web / API${RESET}"
+for p in fastapi uvicorn python-multipart aiofiles jinja2; do pip_pkg "$p"; done
 
-echo "[6/8] Installing Node helpers..."
-sudo npm install -g jwt-cli js-beautify prettier || true
+echo -e "\n  ${CYAN}▸ Image / Vision${RESET}"
+for p in pillow numpy scipy scikit-image imageio opencv-python-headless matplotlib networkx; do pip_pkg "$p"; done
 
-echo "[7/8] Optional GitHub CTF tools..."
+echo -e "\n  ${CYAN}▸ Crypto / Math${RESET}"
+for p in pycryptodome cryptography sympy z3-solver gmpy2; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ Network / Packets${RESET}"
+for p in scapy dpkt pyshark construct kaitaistruct; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ Binary / RE${RESET}"
+for p in pwntools capstone unicorn ropper ROPGadget lief pefile python-magic yara-python; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ Web scraping${RESET}"
+for p in pyjwt requests beautifulsoup4 lxml html5lib; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ PDF${RESET}"
+for p in pypdf pdfplumber pymupdf; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ Archives${RESET}"
+for p in py7zr rarfile zstandard lz4 brotli; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ Stego${RESET}"
+for p in stegano bitstring bitarray; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ Office / Docs${RESET}"
+for p in oletools python-docx openpyxl; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ Memory Forensics${RESET}"
+pip_pkg volatility3
+
+echo -e "\n  ${CYAN}▸ UI / Output${RESET}"
+for p in rich textual tqdm colorama; do pip_pkg "$p"; done
+
+echo -e "\n  ${CYAN}▸ Decompilers${RESET}"
+for p in decompyle3 uncompyle6 xdis; do pip_pkg "$p"; done
+
+step_done
+
+# ─── Step 5 ───────────────────────────────────────────────────────────────────
+section "5" "Ruby stego tools"
+if gem list -i zsteg &>/dev/null 2>&1; then
+  skip "zsteg"
+else
+  info "gem install zsteg"
+  sudo gem install zsteg && ok "zsteg" || xfail "zsteg"
+fi
+step_done
+
+# ─── Step 6 ───────────────────────────────────────────────────────────────────
+section "6" "Node.js helpers"
+for pkg in jwt-cli js-beautify prettier; do
+  if npm list -g "$pkg" --depth=0 &>/dev/null 2>&1; then
+    skip "$pkg"
+  else
+    info "npm install -g $pkg"
+    sudo npm install -g "$pkg" && ok "$pkg" || xfail "$pkg"
+  fi
+done
+step_done
+
+# ─── Step 7 ───────────────────────────────────────────────────────────────────
+section "7" "GitHub CTF tools"
 mkdir -p local_tools
 cd local_tools
 
-if [ ! -d RsaCtfTool ]; then
-  git clone --depth 1 https://github.com/RsaCtfTool/RsaCtfTool.git || true
-fi
+clone_or_pull() {
+  local repo="$1" dir="$2"
+  if [ ! -d "$dir" ]; then
+    info "Cloning $dir..."
+    git clone --depth 1 --progress "$repo" "$dir" 2>&1 \
+      | grep -E "^(Cloning|Receiving|Resolving)" | sed 's/^/        /' || true
+    ok "$dir cloned"
+  else
+    info "Pulling $dir..."
+    local out; out=$(git -C "$dir" pull --ff-only 2>&1)
+    echo "$out" | sed 's/^/        /'
+    ok "$dir up to date"
+  fi
+}
+
+echo ""
+echo -e "  ${CYAN}▸ RsaCtfTool${RESET}"
+clone_or_pull https://github.com/RsaCtfTool/RsaCtfTool.git RsaCtfTool
 if [ -d RsaCtfTool ]; then
-  ../.venv/bin/python -m pip install -r RsaCtfTool/requirements.txt || true
+  info "Installing RsaCtfTool requirements..."
+  ../.venv/bin/python -m pip install -q --upgrade-strategy only-if-needed \
+    -r RsaCtfTool/requirements.txt && ok "RsaCtfTool deps" || xfail "RsaCtfTool deps"
 fi
 
-if [ ! -d Ciphey ]; then
-  git clone --depth 1 https://github.com/Ciphey/Ciphey.git || true
-fi
+echo -e "\n  ${CYAN}▸ Ciphey${RESET}"
+clone_or_pull https://github.com/Ciphey/Ciphey.git Ciphey
 if [ -d Ciphey ]; then
-  ../.venv/bin/python -m pip install ./Ciphey || true
+  info "Installing Ciphey..."
+  ../.venv/bin/python -m pip install -q --upgrade-strategy only-if-needed \
+    ./Ciphey && ok "Ciphey" || xfail "Ciphey"
 fi
 
-if [ ! -d stegseek ]; then
-  git clone --depth 1 https://github.com/RickdeJager/stegseek.git || true
-fi
+echo -e "\n  ${CYAN}▸ stegseek${RESET}"
+clone_or_pull https://github.com/RickdeJager/stegseek.git stegseek
 
 cd ..
+step_done
 
-echo "[8/8] Verifying common commands..."
-for c in file strings binwalk foremost exiftool steghide zsteg zbarimg tesseract tshark tcpdump ffmpeg sox qpdf pdftotext pdfimages readelf objdump gdb python3; do
+# ─── Step 8 ───────────────────────────────────────────────────────────────────
+section "8" "Verifying installed commands"
+pass=0; fail_count=0
+for c in file strings binwalk foremost exiftool steghide zsteg zbarimg tesseract \
+         tshark tcpdump ffmpeg sox qpdf pdftotext pdfimages readelf objdump gdb python3; do
   if command -v "$c" >/dev/null 2>&1; then
-    echo "OK  $c -> $(command -v "$c")"
+    ok "$c  ${DIM}$(command -v "$c")${RESET}"
+    (( pass++ )) || true
   else
-    echo "MISS $c"
+    miss "$c"
+    (( fail_count++ )) || true
   fi
 done
+echo ""
+echo -e "  ${GREEN}${pass} present${RESET}  /  ${RED}${fail_count} missing${RESET}"
+step_done
 
-echo
-echo "Done. Start the app with:"
-echo "  source .venv/bin/activate"
-echo "  bash START_HERE.sh"
+# ─── Summary ──────────────────────────────────────────────────────────────────
+TOTAL=$SECONDS
+echo ""
+echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════╗${RESET}"
+printf "${BOLD}${CYAN}║  All done!  Total time: %-26s║${RESET}\n" "${TOTAL}s"
+echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════╝${RESET}"
+echo ""
+echo -e "  ${BOLD}source .venv/bin/activate${RESET}"
+echo -e "  ${BOLD}bash START_HERE.sh${RESET}"
+echo ""
