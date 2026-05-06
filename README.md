@@ -7,8 +7,8 @@ This repository is structured so it can be uploaded directly to GitHub and still
 ## Quick start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ctf-sloper.git
-cd ctf-sloper
+git clone https://github.com/PauliusPukinskas/CTF-Sloper.git
+cd CTF-Sloper
 bash START_HERE.sh
 ```
 
