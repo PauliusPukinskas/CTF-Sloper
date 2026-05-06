@@ -8,8 +8,6 @@ const tabs = [
 const fileTools = ['strings', 'exiftool', 'binwalk', 'foremost', 'zsteg', 'steghide_info', 'tshark_quick', 'file', 'xxd_head'];
 
 function qs(id){ return document.getElementById(id); }
-function numInput(id, min, max, val){ return `<div class="stepper"><button type="button" class="stepper-btn" onclick="stepNum('${id}',-1,${min},${max})">−</button><input id="${id}" type="number" min="${min}" max="${max}" value="${esc(val)}"><button type="button" class="stepper-btn" onclick="stepNum('${id}',1,${min},${max})">+</button></div>`; }
-function stepNum(id, dir, min, max){ const el=qs(id); if(!el) return; let v=Number(el.value)+dir; if(v<min) v=min; if(v>max) v=max; el.value=v; }
 function esc(x){ return String(x ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function enc(x){ return encodeURIComponent(String(x ?? '')); }
 async function fetchJson(url, opts){ const r = await fetch(url, opts || {}); const t = await r.text(); try { return JSON.parse(t); } catch(e){ return {ok:false, error:t || String(e), status:r.status}; } }
@@ -47,7 +45,7 @@ function renderCreate(){
   drop.ondrop = ev => { ev.preventDefault(); drop.style.borderColor = 'var(--line)'; setFiles(ev.dataTransfer.files); };
 }
 function settingsFormHtml(prefix, p){
-  return `<div class="grid"><label>flag format<select id="${prefix}FlagFormat">${formatOptions(p.flag_format || 'ctf_cs')}</select></label><label>custom regex<input id="${prefix}CustomRegex" value="${esc(p.custom_flag_regex || '')}" placeholder="KEY-[A-Z0-9-]+"></label><label>attack preset<select id="${prefix}AttackPreset">${presetOptions(p.attack_preset || 'balanced')}</select></label><label>difficulty<select id="${prefix}Difficulty">${difficultyOptions(p.difficulty || 'medium')}</select></label><label>max depth${numInput(prefix+'MaxDepth',0,10,p.max_depth??2)}</label><label>max artifacts${numInput(prefix+'MaxArtifacts',50,15000,p.max_artifacts??800)}</label></div><br>`;
+  return `<div class="grid"><label>flag format<select id="${prefix}FlagFormat">${formatOptions(p.flag_format || 'ctf_cs')}</select></label><label>custom regex<input id="${prefix}CustomRegex" value="${esc(p.custom_flag_regex || '')}" placeholder="KEY-[A-Z0-9-]+"></label><label>attack preset<select id="${prefix}AttackPreset">${presetOptions(p.attack_preset || 'balanced')}</select></label><label>difficulty<select id="${prefix}Difficulty">${difficultyOptions(p.difficulty || 'medium')}</select></label><label>max depth<input id="${prefix}MaxDepth" type="number" min="0" max="10" value="${esc(p.max_depth ?? 2)}"></label><label>max artifacts<input id="${prefix}MaxArtifacts" type="number" min="50" max="15000" value="${esc(p.max_artifacts ?? 800)}"></label></div><br>`;
 }
 function readSettings(prefix){
   const ff = qs(prefix+'FlagFormat')?.value || 'ctf_cs';

@@ -639,4 +639,14 @@ def boot():
         _install_ui_v112(legacy)
     except Exception as e:
         print("warning: ui_v112 failed:", e)
+    try:
+        from .upload_flow_v123 import install as _install_upload_flow_v123
+        _install_upload_flow_v123(legacy)
+    except Exception as e:
+        print("warning: upload_flow_v123 failed:", e)
+    try:
+        from .evidence_v123 import apply as _apply_evidence_v123
+        _apply_evidence_v123(legacy)
+    except Exception as e:
+        print("warning: evidence_v123 failed:", e)
     return legacy
