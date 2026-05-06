@@ -263,7 +263,7 @@ def install(mod):
                 return {"ok": False, "error": "missing or outside project", "path": path}
             data = p.read_bytes()[:65536]
             mime, _enc = mimetypes.guess_type(str(p))
-            info = {"ok": True, "path": str(p), "name": p.name, "size": p.stat().st_size, "mime": mime or "application/octet-stream", "raw_url": "/api/raw?path=" + str(p)}
+            info = {"ok": True, "path": str(p), "name": p.name, "size": p.stat().st_size, "mime": mime or "application/octet-stream", "raw_url": "/api/projects/" + pid + "/raw?path=" + str(p)}
             if (mime or "").startswith("image/"):
                 info["kind"] = "image"
             else:
@@ -272,6 +272,13 @@ def install(mod):
                 info["text"] = txt[:20000]
                 info["hex_head"] = data[:256].hex(" ")
             return info
+
+        @mod.app.get("/api/projects/{pid}/raw")
+        def project_raw(pid: str, path: str):
+            p = Path(path)
+            if not (p.exists() and p.is_file() and _inside_project(pid, p)):
+                return mod.JSONResponse({"error": "blocked: raw access is limited to this project"}, status_code=403)
+            return mod.FileResponse(str(p.resolve()))
 
         @mod.app.get("/api/projects/{pid}/file_preview")
         def file_preview(pid: str, path: str):

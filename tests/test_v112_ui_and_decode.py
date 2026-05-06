@@ -1,6 +1,7 @@
 import base64
 import gzip
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -63,3 +64,47 @@ def test_v112_recursive_decoder_lanes_find_nested_flags():
     res2 = analyze_bytes(gz_b64, {'flag_format': 'ctf_cs', 'flag_regex': r'(?is)\bctf_cs\{[^{}\r\n]{1,220}\}', 'max_depth': 4, 'max_artifacts': 500})
     assert any(x['flag'] == 'ctf_cs{base32_unit}' for x in res1['flags'])
     assert any(x['flag'] == 'ctf_cs{gzip_unit}' for x in res2['flags'])
+
+
+def test_v112_create_project_deduplicates_colliding_upload_names():
+    client = TestClient(app.app)
+    files = [
+        ('files', ('same.txt', b'first payload', 'text/plain')),
+        ('files', ('same.txt', b'second payload', 'text/plain')),
+    ]
+    r = client.post('/api/projects', data={'title': 'dedupe uploads', 'auto_start': 'false'}, files=files)
+    assert r.status_code == 200
+    body = r.json()
+    assert body['ok'] is True
+    pid = body['id']
+    root = sloper.pdir(pid)
+    try:
+        stored = sorted((root / 'files').glob('*.txt'))
+        assert [p.name for p in stored] == ['same.txt', 'same__2.txt']
+        assert [p.read_text(encoding='utf-8') for p in stored] == ['first payload', 'second payload']
+        assert body['project']['files'] == ['same.txt', 'same__2.txt']
+    finally:
+        shutil.rmtree(root, ignore_errors=True)
+
+
+def test_v112_project_raw_endpoint_is_project_scoped():
+    client = TestClient(app.app)
+    pid_a = 'pytestrawa'
+    pid_b = 'pytestrawb'
+    root_a = sloper.pdir(pid_a)
+    root_b = sloper.pdir(pid_b)
+    try:
+        (root_a / 'files').mkdir(parents=True, exist_ok=True)
+        (root_b / 'files').mkdir(parents=True, exist_ok=True)
+        file_a = root_a / 'files' / 'a.txt'
+        file_b = root_b / 'files' / 'b.txt'
+        file_a.write_text('project a', encoding='utf-8')
+        file_b.write_text('project b', encoding='utf-8')
+        ok = client.get(f'/api/projects/{pid_a}/raw', params={'path': str(file_a)})
+        blocked = client.get(f'/api/projects/{pid_a}/raw', params={'path': str(file_b)})
+        assert ok.status_code == 200
+        assert ok.text == 'project a'
+        assert blocked.status_code == 403
+    finally:
+        shutil.rmtree(root_a, ignore_errors=True)
+        shutil.rmtree(root_b, ignore_errors=True)

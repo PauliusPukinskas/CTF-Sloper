@@ -16,7 +16,7 @@ This works for small/medium repos. If GitHub refuses many files or large files, 
 
 ```bash
 cd ctf-sloper
-bash scripts/git_init_upload.sh YOUR_GITHUB_USERNAME ctf-sloper
+bash scripts/git_init_upload.sh PauliusPukinskas CTF-Sloper
 ```
 
 That script initializes git, commits everything, sets `origin`, and gives you the final push command.
@@ -30,7 +30,7 @@ git init
 git add .
 git commit -m "Initial CTF Sloper upload"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/ctf-sloper.git
+git remote add origin https://github.com/PauliusPukinskas/CTF-Sloper.git
 git push -u origin main
 ```
 

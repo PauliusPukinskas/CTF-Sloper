@@ -646,16 +646,25 @@ async def create_project(background_tasks:BackgroundTasks, title:str=Form(""), s
     pid = uuid.uuid4().hex[:12]
     root = pdir(pid); fdir = root / "files"; fdir.mkdir(parents=True, exist_ok=True)
     clean_files = []
+    used_names = set()
     for f in files:
         name = safe(getattr(f, "filename", "file") or "file")
         # Avoid accidental upload names that collide with internal folders.
         if name.lower() in SL103_INTERNAL_FILE_NAMES:
             name = "uploaded_" + name
-        dest = fdir / name
+        stem = Path(name).stem or "file"
+        suffix = Path(name).suffix
+        candidate = name
+        counter = 2
+        while candidate.lower() in used_names:
+            candidate = f"{stem}__{counter}{suffix}"
+            counter += 1
+        used_names.add(candidate.lower())
+        dest = fdir / candidate
         dest.write_bytes(await f.read())
-        clean_files.append(name)
+        clean_files.append(candidate)
     auto_title = (title or "").strip() or (clean_files[0] if clean_files else "Untitled challenge")
-    meta = {"id":pid,"title":auto_title,"statement":statement,"category":category,"created":now(),"file_count":len(clean_files),"v103_runtime_isolation":True}
+    meta = {"id":pid,"title":auto_title,"statement":statement,"category":category,"created":now(),"file_count":len(clean_files),"files":clean_files,"v103_runtime_isolation":True}
     jwrite(meta_path(pid), meta)
     with LOCK:
         JOBS[pid] = {"status":"created","progress":0,"stage":"Created","updated":time.time(),"color":"gray"}

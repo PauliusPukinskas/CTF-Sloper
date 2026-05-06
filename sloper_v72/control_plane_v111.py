@@ -274,6 +274,23 @@ def install(mod) -> None:
     mod.sl111_shape_summary = shape_summary
     mod.sl111_normalize_settings = normalize_settings
 
+    def unique_upload_name(raw_name: str, used: set[str]) -> str:
+        """Return a safe, collision-free upload name for this project."""
+        name = mod.safe(raw_name or "file")
+        if name.lower() in {"generated", "artifacts", "cache", "project.json", "report.json"}:
+            name = "uploaded_" + name
+        stem = Path(name).stem or "file"
+        suffix = Path(name).suffix
+        candidate = name
+        counter = 2
+        while candidate.lower() in used:
+            candidate = f"{stem}__{counter}{suffix}"
+            counter += 1
+        used.add(candidate.lower())
+        return candidate
+
+    mod.sl111_unique_upload_name = unique_upload_name
+
     @mod.app.get("/api/preferences")
     def get_preferences():
         prefs = read_settings()
@@ -347,17 +364,16 @@ def install(mod) -> None:
             fdir = root / "files"
             fdir.mkdir(parents=True, exist_ok=True)
             clean: list[str] = []
+            used_names: set[str] = set()
             for f in files:
-                name = mod.safe(getattr(f, "filename", "file") or "file")
-                if name.lower() in {"generated", "artifacts", "cache", "project.json", "report.json"}:
-                    name = "uploaded_" + name
+                name = unique_upload_name(getattr(f, "filename", "file") or "file", used_names)
                 content = await f.read()
                 if len(content) > MAX_UPLOAD_BYTES:
                     return {"ok": False, "error": f"upload too large: {name}; limit={MAX_UPLOAD_BYTES} bytes"}
                 (fdir / name).write_bytes(content)
                 clean.append(name)
             auto_title = (title or "").strip() or (clean[0] if clean else "Untitled challenge")
-            meta = {"id": pid, "title": auto_title, "statement": statement, "category": category, "created": mod.now(), "file_count": len(clean), "workspace_model": "v111: uploaded files in files/, generated artifacts separated", "solver_settings": settings}
+            meta = {"id": pid, "title": auto_title, "statement": statement, "category": category, "created": mod.now(), "file_count": len(clean), "files": clean, "workspace_model": "v111: uploaded files in files/, generated artifacts separated", "solver_settings": settings}
             mod.jwrite(mod.meta_path(pid), meta)
             with mod.LOCK:
                 mod.JOBS[pid] = {"status": "created", "progress": 0, "stage": "Created", "updated": time.time(), "color": "gray", "settings": {"attack_preset": settings["attack_preset"], "difficulty": settings["difficulty"]}}

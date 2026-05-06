@@ -24,7 +24,7 @@ Read [`GITHUB_UPLOAD.md`](GITHUB_UPLOAD.md), or use:
 
 ```bash
 cd ctf-sloper
-bash scripts/git_init_upload.sh YOUR_GITHUB_USERNAME ctf-sloper
+bash scripts/git_init_upload.sh PauliusPukinskas CTF-Sloper
 ```
 
 ## Install external CTF tools
