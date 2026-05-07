@@ -9,7 +9,7 @@
   "attack_preset": "deep",
   "difficulty": "multi_step",
   "max_depth": 3,
-  "max_artifacts": 800,
+  "max_artifacts": 3000,
   "max_runtime_seconds": 120,
   "enabled_categories": {
     "crypto": true,

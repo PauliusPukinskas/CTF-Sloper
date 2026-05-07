@@ -34,6 +34,7 @@ os.environ.setdefault("SLOPER_MAX_TOOL_TIMEOUT", "2")
 
 import app  # noqa: E402,F401
 import sloper_legacy as sloper  # noqa: E402
+from sloper.bench_runner import python_cmd, run_json_file_worker, write_json  # noqa: E402
 
 
 def b64(x: bytes) -> bytes:
@@ -259,26 +260,34 @@ def _run_case_worker(idx: int) -> dict:
 
 
 def _run_case_chunk(indices: list[int]) -> list[dict]:
-    cmd = [sys.executable, str(Path(__file__).resolve()), "--case-indices", ",".join(str(i) for i in indices)]
-    worker_timeout = int(os.environ.get("SLOPER_BENCH_WORKER_TIMEOUT", "20"))
-    cp = subprocess.run(cmd, cwd=str(ROOT), text=True, capture_output=True, timeout=worker_timeout)
-    if cp.returncode != 0:
-        return [{"case": CASES[i]["case"], "expected": CASES[i].get("expected"), "ok": False, "elapsed_ms": 0, "error": cp.stderr[-4000:] or cp.stdout[-4000:]} for i in indices]
-    try:
-        return json.loads(cp.stdout.strip().splitlines()[-1])
-    except Exception as e:
-        return [{"case": CASES[i]["case"], "expected": CASES[i].get("expected"), "ok": False, "elapsed_ms": 0, "error": f"worker JSON parse failed: {e}; stdout={cp.stdout[-1000:]} stderr={cp.stderr[-1000:]}"} for i in indices]
+    with tempfile.TemporaryDirectory(prefix="sloper_bench_worker_") as td:
+        outp = Path(td) / "result.json"
+        cmd = python_cmd(Path(__file__).resolve(), "--case-indices", ",".join(str(i) for i in indices), "--worker-out", str(outp))
+        worker_timeout = int(os.environ.get("SLOPER_BENCH_WORKER_TIMEOUT", "20"))
+        ok, data, err = run_json_file_worker(cmd, ROOT, worker_timeout, outp)
+    if ok and isinstance(data, list):
+        return data
+    return [{"case": CASES[i]["case"], "expected": CASES[i].get("expected"), "ok": False, "elapsed_ms": 0, "error": err or "worker failed"} for i in indices]
 
 
 def main() -> int:
+    worker_out = None
+    if "--worker-out" in sys.argv:
+        worker_out = Path(sys.argv[sys.argv.index("--worker-out") + 1])
     if "--case-indices" in sys.argv:
         raw = sys.argv[sys.argv.index("--case-indices") + 1]
         indices = [int(x) for x in raw.split(",") if x.strip()]
-        print(json.dumps([run_case(CASES[i]) for i in indices], ensure_ascii=False))
+        rows = [run_case(CASES[i]) for i in indices]
+        if worker_out:
+            write_json(worker_out, rows)
+        print(json.dumps(rows, ensure_ascii=False))
         return 0
     if "--case-index" in sys.argv:
         idx = int(sys.argv[sys.argv.index("--case-index") + 1])
-        print(json.dumps(run_case(CASES[idx]), ensure_ascii=False))
+        row = run_case(CASES[idx])
+        if worker_out:
+            write_json(worker_out, row)
+        print(json.dumps(row, ensure_ascii=False))
         return 0
 
     # Chunked subprocess mode is the default: much faster than one process per
@@ -286,10 +295,12 @@ def main() -> int:
     # the rest of the benchmark. Set SLOPER_BENCH_IN_PROCESS=1 for debugging.
     in_process = os.environ.get("SLOPER_BENCH_IN_PROCESS", "0") == "1"
     results = []
+    progress_path = Path(os.environ.get("SLOPER_BENCH_PROGRESS", "docs/BENCHMARK_PROGRESS.json"))
     if in_process:
         for idx, case in enumerate(CASES):
             print(f"[benchmark] {idx + 1}/{len(CASES)} {case['case']}", file=sys.stderr, flush=True)
             results.append(run_case(case))
+            write_json(progress_path, {"done": len(results), "total": len(CASES), "last_case": case["case"], "results": results})
     else:
         chunk = int(os.environ.get("SLOPER_BENCH_CHUNK", "1"))
         for start in range(0, len(CASES), chunk):
@@ -297,6 +308,7 @@ def main() -> int:
             names = ", ".join(CASES[i]["case"] for i in indices)
             print(f"[benchmark] {indices[0] + 1}-{indices[-1] + 1}/{len(CASES)} {names}", file=sys.stderr, flush=True)
             results.extend(_run_case_chunk(indices))
+            write_json(progress_path, {"done": len(results), "total": len(CASES), "last_case": names, "results": results})
     ok = sum(1 for r in results if r["ok"])
     max_ms = max((r["elapsed_ms"] for r in results), default=0)
     out = {"ok": ok == len(results), "passed": ok, "total": len(results), "max_elapsed_ms": max_ms, "results": results}

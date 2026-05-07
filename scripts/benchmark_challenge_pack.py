@@ -22,8 +22,6 @@ import shutil
 import sys
 import tempfile
 import time
-import multiprocessing as mp
-import signal
 from pathlib import Path
 from typing import Any
 
@@ -39,9 +37,10 @@ os.environ.setdefault("SLOPER_V116_FAST_ONLY", "1")
 
 import app  # noqa: E402,F401
 import sloper_legacy as sloper  # noqa: E402
+from sloper.bench_runner import python_cmd, run_json_file_worker, write_json  # noqa: E402
 
 FLAG_RE = re.compile(r"(?is)\b[A-Za-z0-9_]{1,32}\{[^{}\r\n]{1,220}\}|\{[^{}\r\n]{3,220}\}")
-SKIP_DIRS = {".git", "node_modules", "__pycache__", ".pytest_cache", "venv", ".venv", "dist", "build", "artifacts", "artifacts_v113", "artifacts_v114", "artifacts_v115", "artifacts_v116", "artifacts_v117", "projects"}
+SKIP_DIRS = {".git", "node_modules", "__pycache__", ".pytest_cache", "venv", ".venv", "dist", "build", "artifacts", "artifacts_v113", "artifacts_v114", "artifacts_v115", "artifacts_v116", "artifacts_v117", "projects", "ANSWERS_DO_NOT_UPLOAD", "answers", "solutions"}
 
 
 def read_expected(chal: Path) -> str:
@@ -198,12 +197,9 @@ def _run_one_child(q, chal_s: str, args_dict: dict[str, Any]) -> None:
 def run_one(chal: Path, args: argparse.Namespace) -> dict[str, Any]:
     """Run one challenge in a fresh Python subprocess with hard timeout.
 
-    v117 deliberately avoids pipes while the child is running. Some legacy/CTF
-    helper subprocesses inherit stdout and can keep a pipe open after the main
-    child exits, causing communicate() to block. We write child logs to files,
-    wait only on the child, and kill its process group on timeout.
+    This uses the shared file-output worker helper, so benchmark stdout/stderr
+    cannot deadlock on inherited pipes and undecodable bytes are replaced.
     """
-    import subprocess
     timeout = int(getattr(args, "per_challenge_timeout", 0) or 0)
     if timeout <= 0 or getattr(args, "single", False):
         return _run_one_inner(chal, args)
@@ -211,10 +207,8 @@ def run_one(chal: Path, args: argparse.Namespace) -> dict[str, Any]:
     with tempfile.TemporaryDirectory(prefix="sloper_one_") as td:
         td_path = Path(td)
         outp = td_path / "result.json"
-        stdoutp = td_path / "stdout.log"
-        stderrp = td_path / "stderr.log"
-        cmd = [
-            sys.executable, str(Path(__file__).resolve()), str(chal),
+        cmd = python_cmd(
+            Path(__file__).resolve(), str(chal),
             "--single",
             "--flag-format", str(args.flag_format),
             "--custom-regex", str(args.custom_regex or ""),
@@ -226,54 +220,14 @@ def run_one(chal: Path, args: argparse.Namespace) -> dict[str, Any]:
             "--per-challenge-timeout", "0",
             "--out", str(outp),
             "--html-out", str(td_path / "single.html"),
-        ]
-        env = dict(os.environ)
-        env.setdefault("PYTEST_DISABLE_PLUGIN_AUTOLOAD", "1")
-        with stdoutp.open("w", encoding="utf-8", errors="ignore") as so, stderrp.open("w", encoding="utf-8", errors="ignore") as se:
-            proc = subprocess.Popen(cmd, cwd=str(ROOT), env=env, stdout=so, stderr=se, text=True, start_new_session=True)
-            try:
-                rc = proc.wait(timeout=timeout)
-            except subprocess.TimeoutExpired:
-                try:
-                    os.killpg(proc.pid, signal.SIGKILL)
-                except Exception:
-                    try: proc.kill()
-                    except Exception: pass
-                try: proc.wait(timeout=2)
-                except Exception: pass
-                expected = read_expected(chal)
-                return {
-                    "challenge": chal.name,
-                    "path": str(chal),
-                    "files": len(challenge_files(chal, getattr(args, "max_files", 120))),
-                    "expected": expected,
-                    "solved": False if expected else None,
-                    "elapsed_ms": int((time.perf_counter() - started) * 1000),
-                    "top_flags": [],
-                    "raw_top_flags": [],
-                    "evidence": {},
-                    "triage": {"timed_out": True, "timeout_seconds": timeout, "isolation": "subprocess-pgrp"},
-                    "artifact_count": 0,
-                    "error": f"timed out after {timeout}s",
-                }
-        if outp.exists():
-            try:
-                res = json.loads(outp.read_text(encoding="utf-8"))
-                if isinstance(res, dict):
-                    res.setdefault("triage", {})
-                    if isinstance(res["triage"], dict):
-                        res["triage"].setdefault("isolation", "subprocess-pgrp")
-                    if rc != 0:
-                        res["child_stderr_tail"] = (stderrp.read_text(encoding="utf-8", errors="ignore") if stderrp.exists() else "")[-1600:]
-                    return res
-            except Exception:
-                pass
+        )
+        ok, data, err = run_json_file_worker(cmd, ROOT, timeout, outp)
+        if ok and isinstance(data, dict):
+            data.setdefault("triage", {})
+            if isinstance(data["triage"], dict):
+                data["triage"].setdefault("isolation", "file-output-worker")
+            return data
         expected = read_expected(chal)
-        err = ""
-        try: err += stderrp.read_text(encoding="utf-8", errors="ignore")[-1400:]
-        except Exception: pass
-        try: err += stdoutp.read_text(encoding="utf-8", errors="ignore")[-800:]
-        except Exception: pass
         return {
             "challenge": chal.name,
             "path": str(chal),
@@ -284,9 +238,9 @@ def run_one(chal: Path, args: argparse.Namespace) -> dict[str, Any]:
             "top_flags": [],
             "raw_top_flags": [],
             "evidence": {},
-            "triage": {"isolation": "subprocess-pgrp", "returncode": rc},
+            "triage": {"isolation": "file-output-worker", "timed_out": "timed out" in (err or "").lower(), "timeout_seconds": timeout},
             "artifact_count": 0,
-            "error": err or f"child exited {rc} without result",
+            "error": err or "child exited without result",
         }
 
 
@@ -337,6 +291,7 @@ def main() -> int:
     ap.add_argument("--recursive-leaves", action="store_true", help="benchmark recursive challenge leaf folders instead of only one directory level")
     ap.add_argument("--out", type=Path, default=Path("docs/CHALLENGE_PACK_BENCHMARK_v117.json"))
     ap.add_argument("--html-out", type=Path, default=Path("docs/CHALLENGE_PACK_BENCHMARK_v117.html"))
+    ap.add_argument("--progress-out", type=Path, default=Path("docs/CHALLENGE_PACK_PROGRESS.json"))
     ap.add_argument("--single", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--offset", type=int, default=0, help="skip this many discovered challenges; useful for chunked real-pack benchmarking")
     ap.add_argument("--limit", type=int, default=0, help="benchmark at most this many discovered challenges; 0 means no limit")
@@ -363,6 +318,19 @@ def main() -> int:
     for idx, chal in enumerate(challenges, 1):
         print(f"[{idx}/{len(challenges)} | global {start_i+idx}/{len(all_challenges)}] {chal}", flush=True)
         results.append(run_one(chal, args))
+        known_so_far = [r for r in results if r.get("expected")]
+        solved_so_far = [r for r in known_so_far if r.get("solved")]
+        write_json(args.progress_out, {
+            "pack": str(pack),
+            "done": idx,
+            "total": len(challenges),
+            "global_done": start_i + idx,
+            "discovered_challenges": len(all_challenges),
+            "last_challenge": str(chal),
+            "known_expected": len(known_so_far),
+            "solved": len(solved_so_far),
+            "results": results,
+        })
     if args.merge_existing and args.out.exists():
         try:
             old = json.loads(args.out.read_text(encoding="utf-8"))
