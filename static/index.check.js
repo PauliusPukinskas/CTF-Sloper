@@ -88,7 +88,7 @@ function renderCreate(){
   <br><div class="grid"><label>Title<input id="title" placeholder="challenge name"></label><label>Category<select id="category"><option value="auto">auto</option><option>crypto</option><option>stego</option><option>forensics</option><option>reversing</option><option>web</option><option>osint</option><option>misc</option></select></label></div>
   <br><textarea id="statement" placeholder="Task statement / hint / flag format text"></textarea><br><br>
   ${settingsFormHtml('create', p)}
-  <div class="row"><label class="pill"><input type="checkbox" id="autoStart" checked> auto start</label><button class="btn primary" onclick="createProject()">Create + Solve</button><span class="pill">bounded multi-step</span></div></div>`;
+  <div class="row"><label class="pill"><input type="checkbox" id="autoStart" checked> auto start</label><button class="btn primary" onclick="createProject()">Create + Solve</button></div></div>`;
   const drop = qs('drop');
   drop.ondragover = ev=>{ev.preventDefault();drop.style.borderColor='var(--accent)';};
   drop.ondragleave = ()=>{drop.style.borderColor='var(--line)';};
@@ -125,8 +125,10 @@ async function createProject(){
   const st = readSettings('create'); Object.entries(st).forEach(([k,v])=>fd.append(k,String(v)));
   const j = await fetchJson('/api/projects',{method:'POST',body:fd});
   if(!j.ok){ alert(j.error||'create failed'); return; }
+  S.files=[];
+  renderCreate();
   await loadProjects();
-  await openProject(j.id);  // openProject handles switchPage itself
+  await openProject(j.id);
 }
 
 // ── Projects list loading ────────────────────────────────────────────────────
