@@ -2714,13 +2714,13 @@ def v97_git_repo_reasoning_agent(root: Path, reports: list[dict], meta: dict) ->
     if urls or ".git" in joined.lower() or re.search(r"commit|reflog|phantom|fork|github", joined, re.I):
         for u in sorted(set(urls))[:20]:
             rows.append({"repo_url":u, "workflow":"public Git repo archaeology: check commits, refs, releases, events, issue/PR comments, branches/tags, and local .git artifacts if provided; do not promote placeholders without evidence."})
-    # Local .git folder artifacts inside upload.
+    # Local .git folder artifacts inside upload only — never walk up outside the project files dir.
     roots=set()
-    for r in reports:
-        p=Path(str(r.get("path", "")))
-        for parent in [p.parent] + list(p.parents)[:5]:
-            if (parent/".git").exists(): roots.add(parent)
-            if parent.name == ".git": roots.add(parent.parent)
+    files_dir = root / "files"
+    if files_dir.exists():
+        for dot_git in files_dir.rglob(".git"):
+            if dot_git.is_dir():
+                roots.add(dot_git.parent)
     import subprocess
     for gr in list(roots)[:5]:
         row={"local_repo":str(gr),"refs":[],"logs":[],"objects":[]}
