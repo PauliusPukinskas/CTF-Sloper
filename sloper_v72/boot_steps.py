@@ -40,6 +40,8 @@ BOOT_STEPS: tuple[BootStep, ...] = (
     BootStep("evidence v123", "sloper_v72.evidence_v123"),
     BootStep("classic crypto", "sloper.classic_crypto"),
     BootStep("multistep repair", "sloper.multistep_repair"),
+    BootStep("deep workflows", "sloper.deep_workflows"),
+    BootStep("pattern intelligence", "sloper.pattern_intelligence"),
     BootStep("final ranking", "sloper.ranking"),
 )
 

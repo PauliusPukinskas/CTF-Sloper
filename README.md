@@ -120,6 +120,31 @@ Run the local regression benchmark:
 python3 scripts/benchmark_solver.py
 ```
 
+## Final backend solve-rate upgrade
+
+This build keeps the frontend unchanged and improves the backend solver path:
+
+- final ranking now keeps the strongest evidence row per candidate, so a weak
+  early string hit cannot hide a later decoded/extracted artifact proof;
+- classic crypto only runs on text-like inputs, reducing fake flags from binary
+  containers;
+- `sloper.deep_workflows` adds bounded recursive decodes, byte-array transforms,
+  PNG/JPEG/WAV extraction, magic payload carving, ZIP metadata channels, and
+  project-level concat/interleave/XOR/ADD/SUB workflows;
+- `sloper.pattern_intelligence` integrates `data/ai_ctf_multistep_patterns.jsonl`
+  and writes `pattern_hypotheses.json` plus `workflow_queue.md` artifacts so the
+  operator can follow likely CTF workflows even when the final flag is not found;
+- `scripts/benchmark_ai_pattern_corpus.py` validates all 3000 workflow pattern
+  rows and runs representative generated solver smoke cases.
+
+Useful backend checks:
+
+```bash
+python3 scripts/benchmark_solver.py
+python3 scripts/benchmark_extra_multistep.py
+python3 scripts/benchmark_ai_pattern_corpus.py --solver-sample 20
+```
+
 Run a fair benchmark against a local CTF writeup/challenge repo:
 
 ```bash

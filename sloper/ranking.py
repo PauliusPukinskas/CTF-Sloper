@@ -52,6 +52,8 @@ PLACEHOLDER_BODIES = {
     "vietos_pavadinimas",
 }
 
+REVERSED_PLACEHOLDER_BITS = {"elpmaxe", "tset", "galf", "redlohecalp", "ekaf", "rewsna"}
+
 WEAK_SOURCE_TERMS = re.compile(
     r"statement|readme|task\s*text|metadata|filename metadata|member names|bare_token_wrap|"
     r"wrapper demotion|route text|format hint|project settings",
@@ -70,6 +72,22 @@ HIGH_SIGNAL_TERMS = re.compile(
     r"binary|strings|array|constraint|reversing|network|final_|classic_crypto",
     re.I,
 )
+
+ROUTE_NOISE_TERMS = re.compile(
+    r"rect_|read_columns|rows_reversed|serpentine|route|grid|stride|transpose|"
+    r"permutation_wrap|bare_token_wrap|->rot\d+|classic_crypto:caesar_",
+    re.I,
+)
+
+BODY_WORDS = {
+    "admin", "alpha", "answer", "archive", "array", "base", "bytes", "calc",
+    "caesar", "chain", "crypto", "cyber", "decode", "deleted", "docx",
+    "extra", "flag", "forensics", "hidden", "inside", "interleave", "key",
+    "lsb", "message", "negative", "office", "ok", "payload", "png",
+    "pattern", "real", "recovered", "reverse", "rot", "secret", "shift", "sprint",
+    "sqlite", "stego", "table", "text", "two", "vigenere", "wav", "xor",
+    "zip", "zero", "width",
+}
 
 
 def _flag_text(item: Any) -> str:
@@ -99,6 +117,84 @@ def _has_artifact(item: Any) -> bool:
     return isinstance(item, dict) and bool(str(item.get("artifact") or item.get("path") or "").strip())
 
 
+def _body_quality_bonus(flag: str, item: Any, cls: str) -> tuple[int, list[str]]:
+    """Score flag body plausibility without requiring a private answer list.
+
+    Older layers intentionally generate many transformed brace candidates.  A
+    final submit list needs a second sanity pass: exact flags with word-like or
+    leetspeak structure should float up, while alphabet-rotated route noise
+    should remain available as manual evidence.
+    """
+    body = _body(flag)
+    prefix = str(flag).split("{", 1)[0].lower() if "{" in str(flag) else ""
+    low = body.lower()
+    blob = _source_blob(item).lower()
+    bonus = 0
+    reasons: list[str] = []
+    tokens = [t for t in re.split(r"[^A-Za-z0-9]+", low) if t]
+    if not body:
+        return -5000, ["empty_body"]
+    word_hits = sum(1 for t in tokens if t in BODY_WORDS)
+    if word_hits:
+        bonus += min(1500, 360 * word_hits + (420 if word_hits >= 2 else 0))
+        reasons.append("body_contains_ctf_workflow_word")
+    if "_" in body and len(tokens) >= 2:
+        bonus += 420
+        reasons.append("structured_underscore_body")
+    if any(ch.isdigit() for ch in body):
+        bonus += 380
+        reasons.append("digit_or_leetspeak_body")
+    if re.search(r"[a-z][0-9][a-z0-9_]*|[0-9][a-z]", low):
+        bonus += 320
+        reasons.append("leetlike_body")
+    if 8 <= len(body) <= 80:
+        bonus += 180
+        reasons.append("reasonable_body_length")
+    known_prefixes = {"ctf_cs", "ctf_cm", "flag", "picoctf", "htb", "ductf", "csaw", "uiuctf", "ictf", "idekctf"}
+    if prefix in known_prefixes:
+        bonus += 700
+        reasons.append("known_ctf_prefix")
+    elif prefix and "_" in prefix and prefix not in {"ctf_cs", "ctf_cm"}:
+        bonus -= 350
+        reasons.append("odd_generated_prefix_shape")
+    if re.search(r"(.)\1{4,}", body):
+        bonus -= 1300
+        reasons.append("repeated_character_noise")
+    symbol_count = sum(1 for ch in body if not (ch.isalnum() or ch in "_-"))
+    if len(body) >= 8 and symbol_count / max(1, len(body)) > 0.16:
+        bonus -= 1700
+        reasons.append("symbol_heavy_body")
+    alpha = re.sub(r"[^A-Za-z]", "", body)
+    if len(alpha) >= 12:
+        vowels = sum(1 for ch in alpha.lower() if ch in "aeiou")
+        ratio = vowels / max(1, len(alpha))
+        if ratio < 0.18:
+            bonus -= 750
+            reasons.append("low_vowel_rot_noise")
+        elif 0.22 <= ratio <= 0.55:
+            bonus += 180
+            reasons.append("natural_vowel_ratio")
+    if ROUTE_NOISE_TERMS.search(blob):
+        # Route/ROT candidates can still be real, but they should not outrank a
+        # direct/decompressed/decrypted artifact unless the body itself has
+        # strong structure.
+        penalty = 1200
+        if any(r in reasons for r in ("body_contains_ctf_workflow_word", "digit_or_leetspeak_body", "leetlike_body")):
+            penalty = 450
+        bonus -= penalty
+        reasons.append("route_or_rotation_candidate_penalty")
+        if len(tokens) >= 3 and word_hits <= 1 and not any(ch.isdigit() for ch in body):
+            bonus -= 520
+            reasons.append("mostly_unknown_route_tokens")
+    if cls in {"decoded_artifact", "high_signal_artifact"} and re.search(r"base64|gzip|zlib|bz2|lzma|zip|sqlite|docx|png|wav|pcap|xor|zero_width|whitespace", blob):
+        bonus += 850
+        reasons.append("verified_transform_family_bonus")
+    if re.fullmatch(r"(input|direct_ascii|plain|strict_direct)(\s+.*)?", blob.strip()) and "->" not in blob and not ROUTE_NOISE_TERMS.search(blob):
+        bonus += 700
+        reasons.append("direct_source_bonus")
+    return bonus, reasons
+
+
 def classify_candidate(item: Any, selected_format: str = "") -> tuple[str, list[str], int]:
     flag = _flag_text(item).strip()
     body = _body(flag)
@@ -111,8 +207,12 @@ def classify_candidate(item: Any, selected_format: str = "") -> tuple[str, list[
     if not STRICT_RE.match(flag):
         selected = (selected_format or "").lower()
         if ("brace" in selected or selected.strip().startswith("{")) and flag.startswith("{") and flag.endswith("}"):
+            if any(ord(ch) < 32 or ord(ch) > 126 for ch in body):
+                return "generated_noise", ["brace_mode_non_printable_body"], -12000
             if low in METADATA_BODIES or low in PLACEHOLDER_BODIES or len(body) < 5:
                 return "metadata_noise", ["brace_mode_metadata_or_placeholder"], -9000
+            if ROUTE_NOISE_TERMS.search(blob_low) and not re.search(r"base64|gzip|zlib|bz2|lzma|zip|sqlite|docx|png|wav|pcap|xor|zero_width|whitespace|direct_ascii", blob_low):
+                return "manual_evidence", ["brace_mode_route_transform_needs_review"], -700
             if _has_artifact(item) or "transform" in blob_low or "input" in blob_low:
                 return "high_signal_artifact", ["selected_braces_only_candidate"], 2200
             return "direct_flag", ["selected_braces_only_candidate"], 1000
@@ -128,10 +228,17 @@ def classify_candidate(item: Any, selected_format: str = "") -> tuple[str, list[
         return "generated_noise", ["non_brace_candidate_in_braces_only_mode"], -13000
     if "custom" in selected and isinstance(item, dict) and "custom regex hit" not in blob_low and str(item.get("flag_class") or "").lower() != "preferred":
         return "generated_noise", ["non_custom_regex_candidate_in_custom_mode"], -13000
-    selected_prefix = selected.split("{", 1)[0] if "{" in selected and not selected.startswith("{") else ""
+    selected_prefix = ""
+    if "custom" not in selected and "brace" not in selected and not selected.startswith("{"):
+        if "{" in selected:
+            selected_prefix = selected.split("{", 1)[0]
+        elif re.fullmatch(r"[a-z][a-z0-9_]{1,24}", selected) and selected not in {"any", "anyprefix", "any_prefix", "auto"}:
+            selected_prefix = selected
     flag_prefix = flag.split("{", 1)[0].lower()
     if selected_prefix and flag_prefix and flag_prefix != selected_prefix and "custom" not in selected and "brace" not in selected:
         return "generated_noise", ["non_selected_flag_prefix"], -12000
+    if any(ord(ch) < 32 or ord(ch) > 126 for ch in body):
+        return "generated_noise", ["non_printable_flag_body"], -12000
     if isinstance(item, dict):
         raw_flag = str(item.get("flag") or "").strip()
         preferred = str(item.get("preferred_flag") or "").strip()
@@ -152,8 +259,12 @@ def classify_candidate(item: Any, selected_format: str = "") -> tuple[str, list[
         return "metadata_noise", ["readme_or_statement_label"], -20000
     if low in PLACEHOLDER_BODIES or any(w in low for w in ("example", "placeholder", "not_the_flag", "fake")):
         return "metadata_noise", ["placeholder_or_decoy_body"], -18000
+    if any(w in low for w in REVERSED_PLACEHOLDER_BITS) or low.startswith(("fak_", "ekaf_")):
+        return "metadata_noise", ["reversed_placeholder_or_decoy_body"], -17500
     if len(body) < 5:
         return "generated_noise", ["too_short_for_submit"], -9000
+    if ROUTE_NOISE_TERMS.search(blob_low) and len(body) <= 6 and not _has_artifact(item):
+        return "generated_noise", ["short_route_transform_body"], -8500
     if WEAK_SOURCE_TERMS.search(blob) and not _has_artifact(item):
         return "metadata_noise", ["weak_metadata_source_without_artifact"], -14000
     if WEAK_SOURCE_TERMS.search(blob) and re.fullmatch(r"[A-Za-z][A-Za-z0-9 -]{2,32}", body) and not re.search(r"[_0-9{}]", body):
@@ -181,30 +292,31 @@ def classify_candidate(item: Any, selected_format: str = "") -> tuple[str, list[
 
 def rerank_summary(summary: dict[str, Any]) -> dict[str, Any]:
     raw_items = [dict(x) if isinstance(x, dict) else {"flag": str(x)} for x in (summary.get("flags") or [])]
-    promoted: list[dict[str, Any]] = []
-    manual: list[dict[str, Any]] = []
-    seen_promoted: set[str] = set()
-    seen_manual: set[str] = set()
+    promoted_by_key: dict[str, dict[str, Any]] = {}
+    manual_by_key: dict[str, dict[str, Any]] = {}
 
     for item in raw_items:
         flag = _flag_text(item).strip()
         if not flag:
             continue
-        cls, reasons, bonus = classify_candidate(item, str(summary.get("preferred_flag_format") or ""))
+        prefs = summary.get("user_preferences") if isinstance(summary.get("user_preferences"), dict) else {}
+        selected_format = str(prefs.get("flag_format") or summary.get("preferred_flag_format") or "")
+        cls, reasons, bonus = classify_candidate(item, selected_format)
         row = dict(item)
         row["ranking_class"] = cls
-        row["ranking_reasons"] = sorted(set(map(str, reasons)))
-        row["ranking_score"] = int(row.get("v123_score", row.get("v117_score", row.get("rank_score", row.get("score", 0)))) or 0) + bonus
+        quality_bonus, quality_reasons = _body_quality_bonus(str(row.get("preferred_flag") or row.get("flag") or flag), row, cls)
+        row["ranking_reasons"] = sorted(set(map(str, reasons + quality_reasons)))
+        row["ranking_score"] = int(row.get("v123_score", row.get("v117_score", row.get("rank_score", row.get("score", 0)))) or 0) + bonus + quality_bonus
         key = str(row.get("preferred_flag") or row.get("flag") or flag).lower()
         if cls in {"direct_flag", "decoded_artifact", "high_signal_artifact"}:
-            if key not in seen_promoted:
-                seen_promoted.add(key)
-                promoted.append(row)
+            if key not in promoted_by_key or int(row.get("ranking_score", 0) or 0) > int(promoted_by_key[key].get("ranking_score", 0) or 0):
+                promoted_by_key[key] = row
         else:
-            if key not in seen_manual:
-                seen_manual.add(key)
-                manual.append(row)
+            if key not in manual_by_key or int(row.get("ranking_score", 0) or 0) > int(manual_by_key[key].get("ranking_score", 0) or 0):
+                manual_by_key[key] = row
 
+    promoted = list(promoted_by_key.values())
+    manual = [row for key, row in manual_by_key.items() if key not in promoted_by_key]
     promoted.sort(key=lambda x: (int(x.get("ranking_score", 0) or 0), int(x.get("score", 0) or 0)), reverse=True)
     manual.sort(key=lambda x: (int(x.get("ranking_score", 0) or 0), int(x.get("score", 0) or 0)), reverse=True)
 

@@ -184,6 +184,19 @@ def _artifact(root: Path, report: dict, name: str, text: str, method: str, note:
 def classic_crypto_agent(mod: Any, report: dict, root: Path, data: bytes) -> list[dict]:
     if len(data) > 5_000_000:
         return []
+    rel = str(report.get("rel") or report.get("name") or "").lower()
+    text_exts = (".txt", ".md", ".log", ".csv", ".json", ".xml", ".html", ".htm", ".py", ".c", ".h", ".cpp", ".java", ".js", ".ts", ".rs", ".go", ".php", ".sh", ".ps1")
+    binary_magic = data.startswith((
+        b"\x89PNG", b"\xff\xd8", b"GIF87a", b"GIF89a", b"RIFF", b"PK\x03\x04",
+        b"%PDF", b"SQLite format 3", b"\x7fELF", b"MZ", b"\xd4\xc3\xb2\xa1",
+        b"\xa1\xb2\xc3\xd4", b"\x0a\x0d\x0d\x0a",
+    ))
+    sample = data[:10000]
+    printable_ratio = sum(1 for b in sample if b in b"\t\n\r" or 32 <= b <= 126) / max(1, len(sample))
+    if binary_magic and not rel.endswith(text_exts):
+        return []
+    if printable_ratio < 0.68 and not rel.endswith(text_exts):
+        return []
     text = _text(data)
     if not text or sum(ch.isprintable() or ch.isspace() for ch in text[:10000]) < max(10, len(text[:10000]) // 2):
         return []
