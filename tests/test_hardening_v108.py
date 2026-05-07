@@ -12,6 +12,6 @@ def test_hardening_module_exists():
 
 
 def test_bootstrap_loads_hardening():
-    text = (ROOT / "sloper_v72/bootstrap.py").read_text(encoding="utf-8")
+    text = (ROOT / "sloper_v72/boot_steps.py").read_text(encoding="utf-8")
     assert "hardening_v108" in text
-    assert "sl108_postprocess_report_file" in text
+    assert "BOOT_STEPS" in text

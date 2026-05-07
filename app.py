@@ -4,7 +4,7 @@ The old monolith now lives in sloper_legacy.py.
 This file is intentionally small so future versions can move solvers into modules
 without growing app.py forever.
 """
-from sloper_v72.bootstrap import boot
+from sloper.runtime import boot
 
 _legacy = boot()
 app = _legacy.app

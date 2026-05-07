@@ -301,46 +301,10 @@ def install(mod):
         pass
 
     try:
-        from .workflow_v74 import install as install_v74_workflow
-        install_v74_workflow(mod)
+        from .compat_steps import apply_compat_layers
+        apply_compat_layers(mod)
     except Exception as e:
-        agent_crash('install_v74_workflow', e, None)
-    try:
-        from .workflow_v75 import install as install_v75_logic
-        install_v75_logic(mod)
-    except Exception as e:
-        agent_crash('install_v75_logic', e, None)
-    try:
-        from .semantic_v76 import install as install_v76_semantic
-        install_v76_semantic(mod)
-    except Exception as e:
-        agent_crash('install_v76_semantic', e, None)
-    try:
-        from .strict_wraps_v77 import install as install_v77_strict_wraps
-        install_v77_strict_wraps(mod)
-    except Exception as e:
-        agent_crash('install_v77_strict_wraps', e, None)
-
-    try:
-        from .universal_v89 import install as install_v89_universal
-        install_v89_universal(mod)
-    except Exception as e:
-        agent_crash('install_v89_universal', e, None)
-    try:
-        from .v93_reasoned import install as install_v93_reasoned
-        install_v93_reasoned(mod)
-    except Exception as e:
-        agent_crash('install_v93_reasoned', e, None)
-    try:
-        from .v100_ctf_player import install as install_v100_ctf_player
-        install_v100_ctf_player(mod)
-    except Exception as e:
-        agent_crash('install_v100_ctf_player', e, None)
-    try:
-        from .final_engine import install as install_final_engine
-        install_final_engine(mod)
-    except Exception as e:
-        agent_crash('install_final_engine', e, None)
+        agent_crash('install_compat_layers', e, None)
     try:
         _install_final_runtime_fixes(mod, _inside_projects, _inside_project)
     except Exception as e:
@@ -569,84 +533,6 @@ def _install_profile_preferences(mod) -> None:
 def boot():
     legacy = importlib.import_module("sloper_legacy")
     install(legacy)
-    try:
-        from .hardening_v108 import apply as _apply_hardening_v108
-        _apply_hardening_v108(legacy)
-    except Exception as e:
-        print("warning: hardening_v108 failed:", e)
-    try:
-        from .fast_lane_v110 import apply as _apply_fast_lane_v110
-        _apply_fast_lane_v110(legacy)
-    except Exception as e:
-        print("warning: fast_lane_v110 failed:", e)
-    try:
-        from .control_plane_v111 import install as _install_control_plane_v111
-        _install_control_plane_v111(legacy)
-    except Exception as e:
-        print("warning: control_plane_v111 failed:", e)
-    try:
-        from .competition_v113 import apply as _apply_competition_v113
-        _apply_competition_v113(legacy)
-    except Exception as e:
-        print("warning: competition_v113 failed:", e)
-    try:
-        from .competition_v114 import apply as _apply_competition_v114
-        _apply_competition_v114(legacy)
-    except Exception as e:
-        print("warning: competition_v114 failed:", e)
-    try:
-        from .evidence_v113 import apply as _apply_evidence_v113
-        _apply_evidence_v113(legacy)
-    except Exception as e:
-        print("warning: evidence_v113 failed:", e)
-    try:
-        from .competition_v115 import apply as _apply_competition_v115
-        _apply_competition_v115(legacy)
-    except Exception as e:
-        print("warning: competition_v115 failed:", e)
-    try:
-        from .evidence_v114 import apply as _apply_evidence_v114
-        _apply_evidence_v114(legacy)
-    except Exception as e:
-        print("warning: evidence_v114 failed:", e)
-    try:
-        from .evidence_v115 import apply as _apply_evidence_v115
-        _apply_evidence_v115(legacy)
-    except Exception as e:
-        print("warning: evidence_v115 failed:", e)
-    try:
-        from .competition_v116 import apply as _apply_competition_v116
-        _apply_competition_v116(legacy)
-    except Exception as e:
-        print("warning: competition_v116 failed:", e)
-    try:
-        from .evidence_v116 import apply as _apply_evidence_v116
-        _apply_evidence_v116(legacy)
-    except Exception as e:
-        print("warning: evidence_v116 failed:", e)
-    try:
-        from .competition_v117 import apply as _apply_competition_v117
-        _apply_competition_v117(legacy)
-    except Exception as e:
-        print("warning: competition_v117 failed:", e)
-    try:
-        from .evidence_v117 import apply as _apply_evidence_v117
-        _apply_evidence_v117(legacy)
-    except Exception as e:
-        print("warning: evidence_v117 failed:", e)
-    try:
-        from .ui_v112 import install as _install_ui_v112
-        _install_ui_v112(legacy)
-    except Exception as e:
-        print("warning: ui_v112 failed:", e)
-    try:
-        from .upload_flow_v123 import install as _install_upload_flow_v123
-        _install_upload_flow_v123(legacy)
-    except Exception as e:
-        print("warning: upload_flow_v123 failed:", e)
-    try:
-        from .evidence_v123 import apply as _apply_evidence_v123
-        _apply_evidence_v123(legacy)
-    except Exception as e:
-        print("warning: evidence_v123 failed:", e)
+    from .boot_steps import apply_runtime_layers
+    apply_runtime_layers(legacy)
     return legacy

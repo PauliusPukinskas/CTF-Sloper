@@ -2725,23 +2725,23 @@ def v97_git_repo_reasoning_agent(root: Path, reports: list[dict], meta: dict) ->
     for gr in list(roots)[:5]:
         row={"local_repo":str(gr),"refs":[],"logs":[],"objects":[]}
         try:
-            cp=subprocess.run(["git","-C",str(gr),"log","--all","--decorate","--oneline","--graph","-n","200"],capture_output=True,text=True,timeout=5)
+            cp=subprocess.run(["git","-C",str(gr),"log","--all","--decorate","--oneline","--graph","-n","200"],capture_output=True,text=True,encoding="utf-8",errors="replace",timeout=5)
             row["log"]=cp.stdout[:12000]
             scan_text(report, cp.stdout, "SLOPER v97 local git log", None, "Local Git log/reflog scanned for challenge flag evidence.", 880, allow_wrap=True)
         except Exception as e: row["log_error"]=str(e)[:160]
         try:
-            cp=subprocess.run(["git","-C",str(gr),"fsck","--lost-found","--no-reflogs"],capture_output=True,text=True,timeout=8)
+            cp=subprocess.run(["git","-C",str(gr),"fsck","--lost-found","--no-reflogs"],capture_output=True,text=True,encoding="utf-8",errors="replace",timeout=8)
             row["fsck"]= (cp.stdout + cp.stderr)[:12000]
         except Exception as e: row["fsck_error"]=str(e)[:160]
         try:
-            cp=subprocess.run(["git","-C",str(gr),"cat-file","--batch-all-objects","--batch-check"],capture_output=True,text=True,timeout=8)
+            cp=subprocess.run(["git","-C",str(gr),"cat-file","--batch-all-objects","--batch-check"],capture_output=True,text=True,encoding="utf-8",errors="replace",timeout=8)
             objs=cp.stdout.splitlines()[:400]
             row["objects"]=objs[:80]
             for line in objs[:120]:
                 sha=line.split()[0]
                 if re.fullmatch(r"[0-9a-f]{40}", sha):
                     try:
-                        co=subprocess.run(["git","-C",str(gr),"cat-file","-p",sha],capture_output=True,text=True,timeout=2)
+                        co=subprocess.run(["git","-C",str(gr),"cat-file","-p",sha],capture_output=True,text=True,encoding="utf-8",errors="replace",timeout=2)
                         txt=co.stdout[:20000]
                         if V97_SECRET_HINTS.search(txt) or "{" in txt:
                             scan_text(report, txt, "SLOPER v97 local git object", None, f"Local Git object {sha[:12]} scanned.", 910, allow_wrap=True)
