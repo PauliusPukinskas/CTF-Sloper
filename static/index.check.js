@@ -197,7 +197,7 @@ async function openProject(pid){
     qs('page-projects').innerHTML = `<div style="margin-bottom:14px"><button class="btn" onclick="backToProjectList()">← All projects</button></div><div class="card"><p class="sub">Loading…</p></div>`;
   }
 
-  const j = await fetchJson('/api/projects/'+enc(pid));
+  const j = await fetchJson('/api/projects/'+enc(pid)+'/compact');
   if(S.openingPid !== pid) return;   // superseded
   S.current = j;
   S.lastJobStatus = j.job?.status || '';
@@ -215,7 +215,7 @@ function pollProject(pid){
     if(busy || S.current?.project?.id !== pid || !qs('proj-tab-content')) return;
     busy = true;
     try {
-      const j = await fetchJson('/api/projects/'+enc(pid));
+      const j = await fetchJson('/api/projects/'+enc(pid)+'/compact');
       if(S.current?.project?.id !== pid){ busy=false; return; }
       S.current = j;
       const newStatus = j.job?.status || '';
@@ -443,7 +443,7 @@ async function saveProjectSettings(pid){
   const st=readSettings('project');
   const j=await fetchJson('/api/projects/'+enc(pid)+'/settings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(st)});
   if(!j.ok){alert(j.error||'failed');return;}
-  const pj=await fetchJson('/api/projects/'+enc(pid));
+  const pj=await fetchJson('/api/projects/'+enc(pid)+'/compact');
   S.current=pj;
   renderProjectPanel();
 }
