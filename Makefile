@@ -4,8 +4,7 @@ run:
 	bash START_HERE.sh
 
 install:
-	python3 -m venv .venv
-	. .venv/bin/activate && python -m pip install -U pip && pip install -r requirements.txt
+	pip install -r requirements.txt
 
 full-install:
 	bash FULL_INSTALL.sh
@@ -17,7 +16,7 @@ test:
 	python3 -m pytest -q
 
 clean:
-	rm -rf .pytest_cache __pycache__ sloper_v72/__pycache__ .venv
+	rm -rf .pytest_cache __pycache__ sloper_v72/__pycache__
 
 package:
 	bash scripts/package_release.sh

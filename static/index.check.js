@@ -84,7 +84,7 @@ function difficultyOptions(selected){ return (S.difficulties||['easy','medium','
 function renderCreate(){
   const p = S.prefs || {};
   qs('page-create').innerHTML = `<div class="card"><h2>Create challenge project</h2><p class="sub">Upload challenge files, choose the expected flag wrapper and how aggressively Sloper should decode/chain artifacts.</p>
-  <div id="drop" class="drop"><b>Drop files or ZIP here</b><br><br><button class="btn primary" onclick="qs('fileInput').click()">Select files</button><input id="fileInput" class="fileInput" type="file" multiple onchange="setFiles(this.files)"><div id="fileCount" class="sub">No files selected</div></div>
+  <div id="drop" class="drop"><b>Drop files or ZIP here</b><br><br><button class="btn primary" onclick="qs('fileInput').click()">Add files</button><input id="fileInput" class="fileInput" type="file" multiple onchange="addFiles(this.files);this.value=''"><div id="fileList"></div></div>
   <br><div class="grid"><label>Title<input id="title" placeholder="challenge name"></label><label>Category<select id="category"><option value="auto">auto</option><option>crypto</option><option>stego</option><option>forensics</option><option>reversing</option><option>web</option><option>osint</option><option>misc</option></select></label></div>
   <br><textarea id="statement" placeholder="Task statement / hint / flag format text"></textarea><br><br>
   ${settingsFormHtml('create', p)}
@@ -92,7 +92,8 @@ function renderCreate(){
   const drop = qs('drop');
   drop.ondragover = ev=>{ev.preventDefault();drop.style.borderColor='var(--accent)';};
   drop.ondragleave = ()=>{drop.style.borderColor='var(--line)';};
-  drop.ondrop = ev=>{ev.preventDefault();drop.style.borderColor='var(--line)';setFiles(ev.dataTransfer.files);};
+  drop.ondrop = ev=>{ev.preventDefault();drop.style.borderColor='var(--line)';addFiles(ev.dataTransfer.files);};
+  renderFileList();
 }
 function settingsFormHtml(prefix, p){
   return `<div class="grid"><label>flag format<select id="${prefix}FlagFormat">${formatOptions(p.flag_format||'ctf_cs')}</select></label><label>custom regex<input id="${prefix}CustomRegex" value="${esc(p.custom_flag_regex||'')}" placeholder="KEY-[A-Z0-9-]+"></label><label>attack preset<select id="${prefix}AttackPreset">${presetOptions(p.attack_preset||'balanced')}</select></label><label>difficulty<select id="${prefix}Difficulty">${difficultyOptions(p.difficulty||'medium')}</select></label><label>max depth${numInput(prefix+'MaxDepth',0,10,p.max_depth??2)}</label><label>max artifacts${numInput(prefix+'MaxArtifacts',50,15000,p.max_artifacts??800,100)}</label></div><br>`;
@@ -102,7 +103,20 @@ function readSettings(prefix){
   const prefixMap = {ctf_cs:'ctf_cs',ctf_cm:'ctf_cm',flag:'flag',picoctf:'picoCTF',htb:'HTB'};
   return {flag_format:ff,flag_prefix:prefixMap[ff]||(S.prefs?.flag_prefix||'ctf_cs'),custom_flag_regex:qs(prefix+'CustomRegex')?.value||'',attack_preset:qs(prefix+'AttackPreset')?.value||'balanced',difficulty:qs(prefix+'Difficulty')?.value||'medium',max_depth:Number(qs(prefix+'MaxDepth')?.value||2),max_artifacts:Number(qs(prefix+'MaxArtifacts')?.value||800)};
 }
-function setFiles(list){ S.files=Array.from(list||[]); qs('fileCount').textContent=S.files.length?S.files.map(f=>f.name).join(', '):'No files selected'; if(!qs('title').value&&S.files[0]) qs('title').value=S.files[0].name; }
+function addFiles(list){
+  const wasEmpty = !S.files.length;
+  Array.from(list||[]).forEach(f=>S.files.push(f));
+  renderFileList();
+  if(wasEmpty && S.files[0] && !qs('title')?.value) qs('title').value=S.files[0].name;
+}
+function removeFile(i){ S.files.splice(i,1); renderFileList(); }
+function clearFiles(){ S.files=[]; renderFileList(); }
+function renderFileList(){
+  const el=qs('fileList'); if(!el) return;
+  if(!S.files.length){ el.innerHTML='<div style="padding:10px 0 2px;display:flex;align-items:center;justify-content:center"><span class="sub">No files selected</span></div>'; return; }
+  const chips=S.files.map((f,i)=>`<div style="display:inline-flex;align-items:stretch;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#06170e;max-width:280px"><span style="padding:7px 11px;font-size:13px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center" title="${esc(f.name)}">${esc(f.name)}</span><button style="border:none;border-left:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;width:30px;font-size:17px;font-weight:700;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0" onmouseover="this.style.color='var(--bad)'" onmouseout="this.style.color='var(--muted)'" onclick="removeFile(${i})">×</button></div>`).join('');
+  el.innerHTML=`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;justify-content:center">${chips}</div><div style="margin-top:14px;text-align:center"><button class="btn" onclick="clearFiles()">Clear all</button></div>`;
+}
 
 async function createProject(){
   if(!S.files.length){ alert('Add files first'); return; }

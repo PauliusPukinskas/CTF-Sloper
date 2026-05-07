@@ -5,7 +5,7 @@ set -euo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 CYAN='\033[0;36m'; BOLD='\033[1m'; DIM='\033[2m'; RESET='\033[0m'
 
-STEP_TOTAL=8
+STEP_TOTAL=7
 step_start=0
 
 ok()      { echo -e "  ${GREEN}✔${RESET}  $1"; }
@@ -26,14 +26,20 @@ step_done() {
   echo -e "  ${DIM}Completed in ${elapsed}s${RESET}"
 }
 
+PIP_EXTRA=""
+PYVER=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+if [ -f "/usr/lib/python${PYVER}/EXTERNALLY-MANAGED" ]; then
+  PIP_EXTRA="--break-system-packages"
+fi
+
 pip_pkg() {
   local pkg="$1"
   local base; base="${pkg%%[>=<!]*}"
-  if python -m pip show "$base" &>/dev/null 2>&1; then
+  if python3 -m pip show "$base" &>/dev/null 2>&1; then
     skip "$base"
   else
     info "pip install $base"
-    python -m pip install --quiet --upgrade-strategy only-if-needed "$pkg" \
+    python3 -m pip install --quiet --upgrade-strategy only-if-needed $PIP_EXTRA "$pkg" \
       && ok "$base" || xfail "$base"
   fi
 }
@@ -91,7 +97,7 @@ apt_group() {
   done
 }
 
-apt_group "Python"          python3 python3-pip python3-venv python3-dev python3-setuptools python3-wheel
+apt_group "Python"          python3 python3-pip python3-dev python3-setuptools python3-wheel
 apt_group "Build tools"     build-essential cmake make gcc g++ git curl wget unzip zip p7zip-full p7zip-rar unrar-free
 apt_group "Binary / Debug"  file binutils binutils-multiarch gdb ltrace strace patchelf elfutils checksec
 apt_group "Forensics"       binwalk foremost sleuthkit bulk-extractor exiftool steghide outguess
@@ -106,26 +112,10 @@ apt_group "Dev libs"        libssl-dev libffi-dev libmagic-dev libzbar0 libjpeg-
 step_done
 
 # ─── Step 3 ───────────────────────────────────────────────────────────────────
-section "3" "Python virtual environment"
-if [ ! -d .venv ]; then
-  info "Creating .venv..."
-  python3 -m venv .venv || {
-    info "python3-venv missing, installing..."
-    sudo apt-get install -y python3-venv
-    python3 -m venv .venv
-  }
-  ok "Virtualenv created at .venv/"
-else
-  skip ".venv/ (already exists)"
-fi
-source .venv/bin/activate
+section "3" "Python CTF libraries"
 info "Upgrading pip / setuptools / wheel..."
-python -m pip install --upgrade pip setuptools wheel -q
-ok "pip $(pip --version | awk '{print $2}')"
-step_done
-
-# ─── Step 4 ───────────────────────────────────────────────────────────────────
-section "4" "Python CTF libraries"
+python3 -m pip install --upgrade pip setuptools wheel -q $PIP_EXTRA
+ok "pip $(python3 -m pip --version | awk '{print $2}')"
 echo -e "  ${DIM}Skipping packages already installed${RESET}"
 
 echo -e "\n  ${CYAN}▸ Web / API${RESET}"
@@ -169,8 +159,8 @@ for p in decompyle3 uncompyle6 xdis; do pip_pkg "$p"; done
 
 step_done
 
-# ─── Step 5 ───────────────────────────────────────────────────────────────────
-section "5" "Ruby stego tools"
+# ─── Step 4 ───────────────────────────────────────────────────────────────────
+section "4" "Ruby stego tools"
 if gem list -i zsteg &>/dev/null 2>&1; then
   skip "zsteg"
 else
@@ -179,8 +169,8 @@ else
 fi
 step_done
 
-# ─── Step 6 ───────────────────────────────────────────────────────────────────
-section "6" "Node.js helpers"
+# ─── Step 5 ───────────────────────────────────────────────────────────────────
+section "5" "Node.js helpers"
 for pkg in jwt-cli js-beautify prettier; do
   if npm list -g "$pkg" --depth=0 &>/dev/null 2>&1; then
     skip "$pkg"
@@ -191,8 +181,8 @@ for pkg in jwt-cli js-beautify prettier; do
 done
 step_done
 
-# ─── Step 7 ───────────────────────────────────────────────────────────────────
-section "7" "GitHub CTF tools"
+# ─── Step 6 ───────────────────────────────────────────────────────────────────
+section "6" "GitHub CTF tools"
 mkdir -p local_tools
 cd local_tools
 
@@ -216,7 +206,7 @@ echo -e "  ${CYAN}▸ RsaCtfTool${RESET}"
 clone_or_pull https://github.com/RsaCtfTool/RsaCtfTool.git RsaCtfTool
 if [ -d RsaCtfTool ]; then
   info "Installing RsaCtfTool requirements..."
-  ../.venv/bin/python -m pip install -q --upgrade-strategy only-if-needed \
+  python3 -m pip install -q --upgrade-strategy only-if-needed $PIP_EXTRA \
     -r RsaCtfTool/requirements.txt && ok "RsaCtfTool deps" || xfail "RsaCtfTool deps"
 fi
 
@@ -224,7 +214,7 @@ echo -e "\n  ${CYAN}▸ Ciphey${RESET}"
 clone_or_pull https://github.com/Ciphey/Ciphey.git Ciphey
 if [ -d Ciphey ]; then
   info "Installing Ciphey..."
-  ../.venv/bin/python -m pip install -q --upgrade-strategy only-if-needed \
+  python3 -m pip install -q --upgrade-strategy only-if-needed $PIP_EXTRA \
     ./Ciphey && ok "Ciphey" || xfail "Ciphey"
 fi
 
@@ -234,8 +224,8 @@ clone_or_pull https://github.com/RickdeJager/stegseek.git stegseek
 cd ..
 step_done
 
-# ─── Step 8 ───────────────────────────────────────────────────────────────────
-section "8" "Verifying installed commands"
+# ─── Step 7 ───────────────────────────────────────────────────────────────────
+section "7" "Verifying installed commands"
 pass=0; fail_count=0
 for c in file strings binwalk foremost exiftool steghide zsteg zbarimg tesseract \
          tshark tcpdump ffmpeg sox qpdf pdftotext pdfimages readelf objdump gdb python3; do
@@ -258,6 +248,5 @@ echo -e "${BOLD}${CYAN}╔══════════════════
 printf "${BOLD}${CYAN}║  All done!  Total time: %-26s║${RESET}\n" "${TOTAL}s"
 echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════╝${RESET}"
 echo ""
-echo -e "  ${BOLD}source .venv/bin/activate${RESET}"
 echo -e "  ${BOLD}bash START_HERE.sh${RESET}"
 echo ""

@@ -2,19 +2,15 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-if [[ ! -d .venv ]]; then
-  echo "Creating virtualenv in .venv"
-  python3 -m venv .venv || {
-    echo "Virtualenv creation failed. On Ubuntu/Pop!_OS run: sudo apt install python3-venv"
-    exit 1
-  }
+PIP_EXTRA=""
+PYVER=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+if [ -f "/usr/lib/python${PYVER}/EXTERNALLY-MANAGED" ]; then
+  PIP_EXTRA="--break-system-packages"
 fi
 
-source .venv/bin/activate
-python -m pip install -U pip
-pip install --upgrade-strategy only-if-needed -r requirements.txt
+pip install --upgrade-strategy only-if-needed $PIP_EXTRA -r requirements.txt
 
 HOST="${HOST:-127.0.0.1}"
 PORT="${PORT:-7860}"
 echo "Starting CTF Sloper on http://${HOST}:${PORT}"
-exec python -m uvicorn app:app --host "$HOST" --port "$PORT"
+exec python3 -m uvicorn app:app --host "$HOST" --port "$PORT"
