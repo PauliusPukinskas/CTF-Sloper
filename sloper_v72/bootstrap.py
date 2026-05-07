@@ -378,6 +378,33 @@ def _install_final_runtime_fixes(mod, inside_projects, inside_project) -> None:
             return mod.JSONResponse({"error": "blocked: raw access is limited to project files and generated artifacts"}, status_code=403)
         return mod.FileResponse(str(p.resolve()))
 
+    def _wsl_to_win(p: Path) -> str:
+        parts = p.resolve().parts
+        if len(parts) >= 3 and parts[0] == "/" and parts[1] == "mnt" and len(parts[2]) == 1:
+            return parts[2].upper() + ":\\" + "\\".join(parts[3:])
+        return str(p)
+
+    def reveal(path: str):
+        import subprocess, sys
+        p = Path(path)
+        if not (p.exists() and p.is_file() and inside_projects(p)):
+            return mod.JSONResponse({"ok": False, "error": "blocked"}, status_code=403)
+        try:
+            try:
+                is_wsl = "microsoft" in Path("/proc/version").read_text(encoding="utf-8", errors="ignore").lower()
+            except Exception:
+                is_wsl = False
+            if is_wsl:
+                win = _wsl_to_win(p)
+                subprocess.Popen(["explorer.exe", f"/select,{win}"])
+            elif sys.platform == "darwin":
+                subprocess.Popen(["open", "-R", str(p.resolve())])
+            else:
+                subprocess.Popen(["xdg-open", str(p.resolve().parent)])
+            return {"ok": True, "path": str(p)}
+        except Exception as e:
+            return {"ok": False, "error": repr(e)}
+
     def list_projects():
         arr = []
         for d in sorted([x for x in mod.PROJECTS.iterdir() if x.is_dir()], key=lambda x: x.stat().st_mtime if x.exists() else 0, reverse=True):
@@ -414,6 +441,7 @@ def _install_final_runtime_fixes(mod, inside_projects, inside_project) -> None:
     try:
         if hasattr(mod, "sl103_rebind_route"):
             mod.sl103_rebind_route("/api/raw", ["GET"], raw)
+            mod.sl103_rebind_route("/api/reveal", ["GET"], reveal)
             mod.sl103_rebind_route("/api/projects", ["GET"], list_projects)
             mod.sl103_rebind_route("/api/projects/{pid}", ["GET"], get_project)
     except Exception:

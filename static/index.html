@@ -26,6 +26,19 @@ input[type="checkbox"]:checked::after{content:'';position:absolute;left:50%;top:
 .side-proj-btn{display:block;width:100%;text-align:left;background:none;border:none;padding:5px 8px;border-radius:8px;cursor:pointer;color:var(--text);transition:background .12s}
 .side-proj-btn:hover{background:rgba(53,208,127,.08)}
 .side-proj-btn.active-proj{background:rgba(53,208,127,.12);color:var(--accent)}
+/* Visuals tab grid */
+.vis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.vis-card{background:#06170e;border:1px solid #154b31;border-radius:12px;overflow:hidden;transition:border-color .15s}
+.vis-card:hover{border-color:var(--accent)}
+.vis-card-img-wrap{display:block;width:100%;background:#020906}
+.vis-card-img-wrap img{width:100%;height:auto;display:block}
+.vis-info{padding:7px 9px 8px}
+.vis-label{font-size:11px;color:var(--text);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px}
+.vis-footer{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.vis-badge{font-size:10px;color:var(--accent);font-weight:700;white-space:nowrap}
+.vis-kind{font-size:10px;color:var(--muted);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vis-btn{border:1px solid var(--line);background:#082416;color:var(--text);border-radius:6px;padding:3px 9px;font-size:10px;cursor:pointer;text-decoration:none;display:inline-block;line-height:1.5;font:inherit}
+.vis-btn:hover{background:#0e3820;border-color:var(--accent);color:var(--text)}
 </style>
 </head>
 <body>

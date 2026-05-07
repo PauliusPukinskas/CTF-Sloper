@@ -8,8 +8,8 @@ const S = {
   files: [], poller: null, lastJobStatus: '', openingPid: null
 };
 const tabs = [
-  ['overview', 'Overview'], ['flags', 'Flags'], ['artifacts', 'Artifacts'], ['files', 'Files'],
-  ['logs', 'Logs'], ['settings', 'Settings'], ['tools', 'Manual tools']
+  ['overview', 'Overview'], ['flags', 'Flags'], ['artifacts', 'Artifacts'], ['visuals', 'Visuals'],
+  ['files', 'Files'], ['logs', 'Logs'], ['settings', 'Settings'], ['tools', 'Manual tools']
 ];
 const fileTools = ['strings', 'exiftool', 'binwalk', 'foremost', 'zsteg', 'steghide_info', 'tshark_quick', 'file', 'xxd_head'];
 
@@ -21,6 +21,7 @@ function enc(x){ return encodeURIComponent(String(x ?? '')); }
 async function fetchJson(url, opts){ const r=await fetch(url,opts||{}); const t=await r.text(); try{return JSON.parse(t);}catch(e){return{ok:false,error:t||String(e),status:r.status};} }
 function copyText(x){ navigator.clipboard?.writeText(String(x)).catch(()=>{}); }
 function hashStr(s){ let h=5381,n=Math.min(s.length,10000); for(let i=0;i<n;i++) h=((h<<5)+h+s.charCodeAt(i))|0; return h; }
+const artifactCache = new Map();
 
 // ── Navigation ──────────────────────────────────────────────────────────────
 
@@ -270,6 +271,7 @@ function updateProjectPanel(j){
     const h = String(hashStr(html));
     if(content.dataset.h !== h){ content.innerHTML=html; content.dataset.h=h; }
   }
+  autoLoadArtifacts();
 
   // Tab button active states
   tabs.forEach(([id])=>{ const b=qs('tab-btn-'+id); if(b) b.className='btn'+(S.activeTab===id?' primary':''); });
@@ -328,7 +330,8 @@ function pickSideProject(pid){
 function metricsHtml(sum, files, job){ return `<div class="grid"><div class="metric"><b>${esc(job.progress??0)}%</b><div class="sub">progress</div></div><div class="metric"><b>${files.length}</b><div class="sub">files</div></div><div class="metric"><b>${(sum.flags||[]).length}</b><div class="sub">promoted flags</div></div><div class="metric"><b>${(sum.related_candidate_flags||[]).length}</b><div class="sub">related candidates</div></div><div class="metric"><b>${(sum.artifacts||[]).length}</b><div class="sub">artifacts</div></div><div class="metric"><b>${esc(sum.v115_triage?.version||sum.v114_triage?.version||sum.v113_evidence?.version||sum.v110_fast_summary?.version||'fast')}</b><div class="sub">engine</div></div><div class="metric"><b>${esc(sum.v115_triage?.best_score??sum.v114_triage?.best_confidence??sum.v113_evidence?.promoted??0)}</b><div class="sub">best confidence</div></div><div class="metric"><b>${esc(sum.v115_triage?.trusted??sum.v114_triage?.high_confidence??0)}</b><div class="sub">high confidence</div></div></div><br>`; }
 function tabHtml(tab, meta, sum, files, j){
   if(tab==='flags') return flagsHtml(sum);
-  if(tab==='artifacts') return artifactsHtml(sum.artifacts||[]);
+  if(tab==='artifacts') return artifactsHtml((sum.artifacts||[]).filter(a=>!a.path||!_IMG_EXTS.has(_ext(a.path))));
+  if(tab==='visuals') return visualsHtml(sum.artifacts||[]);
   if(tab==='files') return filesHtml(files);
   if(tab==='logs') return `<button class="btn" onclick="loadLog('${esc(meta.id)}')">Refresh log</button><div id="logBox"><pre>${esc(j.log||'')}</pre></div>`;
   if(tab==='settings') return projectSettingsHtml(meta);
@@ -336,11 +339,77 @@ function tabHtml(tab, meta, sum, files, j){
   return overviewHtml(sum);
 }
 function triageHtml(sum){ const v=sum.v115_triage||null; const t=v||sum.v114_triage||{}; if(v) return `<div class="find"><b>v115 live competition triage</b><p class="sub">best: ${esc(v.best_flag||'none')} · score ${esc(v.best_score||0)} · trusted ${esc(v.trusted||0)} · promising ${esc(v.promising||0)} · manual ${esc(v.manual_review||0)}</p><p class="sub">source: ${esc(v.best_source||'')} · priority artifacts ${esc(v.priority_artifacts||0)}</p><p class="sub">${esc(v.operator_hint||'')}</p></div>`; return `<div class="find"><b>v114 operator triage</b><p class="sub">best: ${esc(t.best_flag||'none')} · confidence ${esc(t.best_confidence||0)}% · high ${esc(t.high_confidence||0)} · medium ${esc(t.medium_confidence||0)} · related ${esc(t.low_or_related||0)}</p><p class="sub">${esc(t.operator_hint||'')}</p></div>`; }
-function overviewHtml(sum){ return `${triageHtml(sum)}<h3>Best flags</h3>${flagsHtml(sum,8)}<h3>Clean artifact queue</h3>${artifactsHtml((sum.artifacts||[]).slice(0,12))}`; }
+function overviewHtml(sum){ const nonImg=(sum.artifacts||[]).filter(a=>!a.path||!_IMG_EXTS.has(_ext(a.path))); return `${triageHtml(sum)}<h3>Best flags</h3>${flagsHtml(sum,8)}<h3>Clean artifact queue</h3>${artifactsHtml(nonImg.slice(0,12))}`; }
 function flagsHtml(sum, limit){ const flags=(sum.flags||[]).slice(0,limit||120); const related=(sum.related_candidate_flags||[]).slice(0,30); return `${flags.map(f=>flagRow(f)).join('')||'<p class="warn">No promoted flag yet.</p>'}${related.length?'<h3>Related candidates</h3>'+related.map(f=>flagRow(f,true)).join(''):''}`; }
 function flagRow(f, weak){ const val=f.preferred_flag||f.flag||f.value||''; const conf=f.confidence??''; const risk=f.risk??''; const verdict=f.verdict||(weak?'related':'promoted'); const chain=f.chain_text||(Array.isArray(f.chain)?f.chain.join(' → '):f.source||''); const why=Array.isArray(f.why)?f.why.join(', '):(f.why||''); const warn=Array.isArray(f.warnings)?f.warnings.join(', '):(f.warnings||''); return `<div class="flag"><div class="row between"><b class="${weak?'warn':'ok'}">${esc(val)}</b><button class="btn" onclick="copyText('${esc(val)}')">copy</button></div><div class="row"><span class="pill">${esc(verdict)}</span>${conf!==''?`<span class="pill">confidence ${esc(conf)}%</span>`:''}${risk!==''?`<span class="pill">risk ${esc(risk)}%</span>`:''}<span class="pill">score ${esc(f.score||f.rank_score||0)}</span></div><div class="sub">${esc(f.file||'')} · ${esc(chain)}</div>${why?`<div class="sub ok">why: ${esc(why)}</div>`:''}${warn?`<div class="sub warn">warn: ${esc(warn)}</div>`:''}</div>`; }
-function artifactsHtml(items){ if(!items.length) return '<p class="warn">No artifacts yet.</p>'; return items.map((a,i)=>{ const uid=`artv_${i}`; return `<div class="find artifact"><div><span class="score">${esc(a.score||0)}</span><br><span class="pill">${esc(a.kind||'artifact')}</span></div><div style="min-width:0"><b>${esc(a.name||a.path||a.url||'artifact')}</b><p class="sub">${esc(a.source||'')} · ${esc(a.file||'')} · ${esc(a.note||'')}</p><div id="${uid}"></div></div><div class="row">${a.path?`<button class="btn" onclick="viewArtifact('${enc(a.path)}','${uid}')">view</button>`:''}</div></div>`; }).join(''); }
-async function viewArtifact(path, uid){ const el=qs(uid); if(!el) return; if(el.dataset.open==='1'){el.innerHTML='';el.dataset.open='0';return;} el.innerHTML='<span class="sub">loading…</span>'; try{ const r=await fetch('/api/raw?path='+path); const t=await r.text(); el.innerHTML=`<pre>${esc(t.slice(0,12000))}${t.length>12000?'\n… (truncated)':''}</pre>`; el.dataset.open='1'; }catch(e){ el.innerHTML=`<span class="bad">${esc(String(e))}</span>`; } }
+const _IMG_EXTS = new Set(['jpg','jpeg','png','gif','bmp','svg','webp','ico']);
+const _TXT_EXTS = new Set(['txt','log','json','xml','html','htm','csv','py','js','ts','sh','md','c','cpp','h','rb','go','rs','yaml','yml','toml','ini','cfg','conf','out','hex']);
+function _ext(p){ return (p||'').split('.').pop().toLowerCase(); }
+function artifactsHtml(items){
+  if(!items.length) return '<p class="warn">No artifacts yet.</p>';
+  return items.map((a,i)=>{
+    const uid = `artv_${i}`;
+    const name = esc(a.name||a.path||a.url||'artifact');
+    const meta = [a.source,a.file,a.note].filter(Boolean).map(esc).join(' · ');
+    const p = a.path||'';
+    const rawUrl = p ? '/api/raw?path='+enc(p) : '';
+    let body = '';
+    if(p && _IMG_EXTS.has(_ext(p))){
+      body = `<img class="preview" src="${rawUrl}" onerror="imgError(this)" data-dl="${rawUrl}" style="max-height:320px">`;
+    } else if(p && _TXT_EXTS.has(_ext(p))){
+      body = `<div class="artv-text" id="${uid}" data-src="${rawUrl}"><span class="sub">loading…</span></div>`;
+    } else if(p){
+      body = `<a class="btn" href="${rawUrl}" target="_blank" style="display:inline-block;margin-top:6px">Download</a>`;
+    } else if(a.url){
+      body = `<a class="btn" href="${esc(a.url)}" target="_blank" style="display:inline-block;margin-top:6px">Open link</a>`;
+    }
+    return `<div class="find" style="margin:8px 0"><div class="row between" style="gap:6px"><div class="row" style="gap:6px;flex-wrap:wrap;min-width:0"><span class="score">${esc(a.score||0)}</span><span class="pill">${esc(a.kind||'artifact')}</span><b style="word-break:break-all">${name}</b></div><button class="btn" id="art-tog-${uid}" onclick="toggleArtifact('${uid}')" style="flex-shrink:0;padding:4px 9px">▾</button></div>${meta?`<div class="sub" style="margin:3px 0 5px">${meta}</div>`:''}<div id="art-body-${uid}">${body}</div></div>`;
+  }).join('');
+}
+function toggleArtifact(uid){
+  const body=document.getElementById('art-body-'+uid), btn=document.getElementById('art-tog-'+uid);
+  if(!body) return;
+  const hide = body.style.display!=='none';
+  body.style.display = hide?'none':'';
+  if(btn) btn.textContent = hide?'▸':'▾';
+}
+async function fetchArtifactHtml(url){
+  if(artifactCache.has(url)) return artifactCache.get(url);
+  try{
+    const r=await fetch(url); const t=await r.text();
+    const html=`<pre>${esc(t.slice(0,14000))}${t.length>14000?'\n… (truncated)':''}</pre>`;
+    artifactCache.set(url,html); return html;
+  }catch(e){ return `<span class="bad">${esc(String(e))}</span>`; }
+}
+function autoLoadArtifacts(){
+  const els=Array.from(document.querySelectorAll('.artv-text[data-src]')).filter(el=>el.dataset.loaded!=='1');
+  els.slice(0,10).forEach(el=>{
+    el.dataset.loaded='1';
+    const cached=artifactCache.get(el.dataset.src);
+    if(cached){el.innerHTML=cached;return;}
+    fetchArtifactHtml(el.dataset.src).then(html=>{el.innerHTML=html;});
+  });
+}
+function imgError(el){ const dl=el.dataset.dl||''; el.outerHTML=`<a class="btn" href="${dl}" target="_blank" style="display:inline-block;margin-top:6px">Download image</a>`; }
+function visualsHtml(items){
+  const imgs = items.filter(a => a.path && _IMG_EXTS.has(_ext(a.path)));
+  if(!imgs.length) return '<p class="warn">No visual artifacts yet. PNG/JPG/etc. artifacts will appear here as they are generated.</p>';
+  const sorted = [...imgs].sort((a,b)=>(b.score||0)-(a.score||0));
+  return `<div class="row between" style="margin-bottom:10px"><span class="sub">${sorted.length} visual${sorted.length!==1?'s':''} — click image to open full size</span></div><div class="vis-grid">${sorted.map(a=>{
+    const rawUrl='/api/raw?path='+enc(a.path);
+    const name=esc(a.name||a.path.split(/[/\\]/).pop()||'visual');
+    const kind=esc(a.kind||'');
+    const p=esc(a.path||'');
+    return `<div class="vis-card"><a class="vis-card-img-wrap" href="${rawUrl}" target="_blank"><img src="${rawUrl}" alt="${name}" loading="lazy" onerror="this.style.opacity='.3'"></a><div class="vis-info"><div class="vis-label" title="${name}">${name}</div><div class="vis-footer"><span class="vis-badge">score ${esc(a.score||0)}</span>${kind?`<span class="vis-kind">${kind}</span>`:''} ${a.path?`<button class="vis-btn" onclick="revealInFolder('${p}')">show in folder</button>`:''}</div></div></div>`;
+  }).join('')}</div>`;
+}
+async function revealInFolder(path){
+  try{
+    const r=await fetch('/api/reveal?path='+enc(path));
+    const j=await r.json();
+    if(!j.ok) alert('Could not reveal file: '+(j.error||'unknown'));
+  }catch(e){ alert('Could not reveal file: '+String(e)); }
+}
 function filesHtml(files){ return files.map(f=>`<div class="find"><div class="row between"><div><b>${esc(f.rel||f.name)}</b><div class="sub">${esc(f.kind||'')} · ${esc(f.size||0)} bytes</div></div><div class="row"><button class="btn" onclick="previewFile('${enc(f.path)}')">preview</button>${f.path?`<a class="btn" target="_blank" href="/api/raw?path=${enc(f.path)}">raw</a>`:''}</div></div><div id="preview-${esc(f.path||f.name)}"></div></div>`).join('')||'<p class="warn">No files.</p>'; }
 async function previewFile(path){ const j=await fetchJson('/api/raw_info?path='+path); alert(JSON.stringify(j,null,2)); }
 function projectSettingsHtml(meta){ const p=meta.solver_settings||S.prefs||{}; return `<h3>Project solver settings</h3>${settingsFormHtml('project',p)}<button class="btn primary" onclick="saveProjectSettings('${esc(meta.id)}')">Save project settings</button><pre>${esc(JSON.stringify(p,null,2))}</pre>`; }
