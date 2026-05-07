@@ -181,6 +181,33 @@ def install(mod):
         return {"project": meta, "job": job, "report": {"summary": summary, "files": files, "updated": rep.get("updated")}}
 
     try:
+        @mod.app.get("/api/projects_meta")
+        def projects_meta():
+            """Metadata-only list: reads project.json + JOBS only, no report.json. ~40ms for any number of projects."""
+            items = []
+            for p in sorted(mod.PROJECTS.iterdir(), key=lambda x: x.stat().st_mtime if x.exists() else 0, reverse=True):
+                if not p.is_dir():
+                    continue
+                meta = mod.jread(mod.meta_path(p.name), {}) or {"id": p.name, "title": p.name}
+                pid = meta.get("id") or p.name
+                job = {}
+                try:
+                    with mod.LOCK:
+                        job = dict(mod.JOBS.get(pid, {}) or {})
+                except Exception:
+                    pass
+                has_report = (p / "report.json").exists()
+                items.append({
+                    "id": pid,
+                    "title": meta.get("title") or meta.get("name") or p.name,
+                    "category": meta.get("category", ""),
+                    "created": meta.get("created", ""),
+                    "runtime_status": job.get("status", "done" if has_report else "idle"),
+                    "progress": job.get("progress", 100 if has_report else 0),
+                    "stage": job.get("stage", "Done" if has_report else ""),
+                })
+            return {"projects": items}
+
         @mod.app.get("/api/projects_compact")
         def projects_compact():
             items = []

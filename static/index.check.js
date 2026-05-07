@@ -118,7 +118,7 @@ async function createProject(){
 // ── Projects list loading ────────────────────────────────────────────────────
 
 async function loadProjects(){
-  const j = await fetchJson('/api/projects');
+  const j = await fetchJson('/api/projects_meta');
   S.projects = j.projects || [];
   updateSideProjects();
   // Only re-render the list if we're currently in list view on the projects page
