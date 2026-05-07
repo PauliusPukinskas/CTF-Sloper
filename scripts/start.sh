@@ -12,7 +12,7 @@ fi
 
 source .venv/bin/activate
 python -m pip install -U pip
-pip install -r requirements.txt
+pip install --upgrade-strategy only-if-needed -r requirements.txt
 
 HOST="${HOST:-127.0.0.1}"
 PORT="${PORT:-7860}"
