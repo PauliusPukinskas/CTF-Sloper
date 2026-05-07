@@ -154,10 +154,26 @@ function showProjectsList(){
 
 // ── Project detail view ──────────────────────────────────────────────────────
 
+function othersBarHtml(){
+  if(!S.projects.length) return '';
+  const curId = S.current?.project?.id;
+  const curJob = S.current?.job || {};
+  return S.projects.map(p=>{
+    const isCur = p.id === curId;
+    const pct  = isCur ? Number(curJob.progress ?? p.progress ?? 0) : Number(p.progress ?? 0);
+    const st   = isCur ? (curJob.status || p.runtime_status || 'idle') : (p.runtime_status || 'idle');
+    const icon = st==='running' ? `<span class="running-dot" style="color:var(--accent)">●</span> `
+               : st==='done'    ? `<span style="color:var(--ok)">✓</span> `
+               : st==='error'   ? `<span style="color:var(--bad)">✗</span> ` : '';
+    const subLabel = st==='running' ? `running · ${pct}%` : st==='done' ? `done · ${pct}%` : esc(st||'idle');
+    return `<button class="proj-pill${isCur?' cur-pill':''}" onclick="pickSideProject('${esc(p.id)}')" title="${esc(p.title||p.id)}"><div class="proj-pill-name">${icon}${esc(p.title||p.id)}</div><div class="proj-pill-sub">${subLabel}</div><div class="proj-pill-track"><div class="proj-pill-fill" style="width:${pct}%"></div></div></button>`;
+  }).join('');
+}
+
 // Renders a full-width project detail panel with a back button into page-projects
 function renderProjectPanel(){
   if(!S.current){ showProjectsList(); return; }
-  qs('page-projects').innerHTML = `<div style="margin-bottom:14px"><button class="btn" onclick="backToProjectList()" style="gap:6px">← All projects</button></div>${projectHtml(S.current)}`;
+  qs('page-projects').innerHTML = `<div style="margin-bottom:14px"><button class="btn" onclick="backToProjectList()">← All projects</button></div><div id="proj-strip-wrap" class="proj-strip">${othersBarHtml()}</div>${projectHtml(S.current)}`;
 }
 
 function backToProjectList(){
@@ -203,6 +219,9 @@ function pollProject(pid){
       if(S.current?.project?.id !== pid){ busy=false; return; }
       S.current = j;
       const newStatus = j.job?.status || '';
+      // Sync live progress into S.projects so the strip stays accurate
+      const pidIdx = S.projects.findIndex(p => p.id === pid);
+      if(pidIdx >= 0) Object.assign(S.projects[pidIdx], {progress: j.job?.progress ?? S.projects[pidIdx].progress, runtime_status: newStatus || S.projects[pidIdx].runtime_status});
       // Only snap back to overview when the job actually finishes
       if(S.lastJobStatus !== 'done' && newStatus === 'done') S.activeTab = 'overview';
       S.lastJobStatus = newStatus;
@@ -263,6 +282,13 @@ function updateProjectPanel(j){
   // Metrics grid
   const metrics = qs('proj-metrics');
   if(metrics) metrics.innerHTML = metricsHtml(sum,files,job);
+
+  // Project switcher strip — hash-deduplicated
+  const strip = qs('proj-strip-wrap');
+  if(strip){
+    const sh = String(hashStr(othersBarHtml()));
+    if(strip.dataset.h !== sh){ strip.innerHTML = othersBarHtml(); strip.dataset.h = sh; }
+  }
 
   // Tab content — only replace DOM if HTML actually changed (preserves expanded artifact views)
   const content = qs('proj-tab-content');
