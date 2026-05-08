@@ -415,11 +415,43 @@ function toggleArtifact(uid){
   body.style.display = hide?'none':'';
   if(btn) btn.textContent = hide?'▸':'▾';
 }
+function _isPrintable(s){ if(!s||!s.length) return false; let n=0; for(let i=0;i<s.length;i++){const c=s.charCodeAt(i); if(c>=0x20&&c<0x7F) n++;} return n/s.length>0.65; }
+function _decodeCard(text, meth, src, quality){
+  return `<div style="padding:3px 0;border-bottom:1px solid rgba(128,128,128,.12);font-size:.88em;line-height:1.5"><span class="pill" style="font-size:10px;padding:1px 6px;vertical-align:middle;margin-right:5px">${meth}${quality!=null?` <span class="score" style="font-size:10px">q=${esc(String(quality))}</span>`:''}</span><b style="word-break:break-all">${text}</b>${src?` <span class="sub" style="word-break:break-all">← ${src}</span>`:''}</div>`;
+}
+function _renderJsonArtifact(data){
+  if(Array.isArray(data)){
+    const good=data.filter(e=>e&&typeof e==='object'&&_isPrintable(e.text||e.output||''));
+    if(!good.length) return '<p class="sub" style="margin:6px 0">No printable decoded results.</p>';
+    return good.map(e=>_decodeCard(esc(e.text||e.output||''),esc(e.method||e.type||''),esc(e.token||e.input||e.source||''),null)).join('');
+  }
+  if(data&&typeof data==='object'){
+    let html='';
+    if(data.interesting_strings?.length) html+=`<div class="sub" style="margin:8px 0 4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px">Interesting strings</div><pre style="margin:0 0 10px">${esc(data.interesting_strings.join('\n'))}</pre>`;
+    if(data.decoded_constants?.length){
+      const good=data.decoded_constants.filter(e=>_isPrintable(e.text||''));
+      if(good.length){
+        html+=`<div class="sub" style="margin:8px 0 4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px">Decoded constants</div>`;
+        html+=good.map(e=>_decodeCard(esc(e.text||''),esc(e.method||''),esc(e.source||''),e.quality??null)).join('');
+      }
+    }
+    if(data.note) html+=`<p class="sub" style="margin-top:8px">${esc(data.note)}</p>`;
+    if(!html) html=`<pre>${esc(JSON.stringify(data,null,2).slice(0,8000))}</pre>`;
+    return html;
+  }
+  return `<pre>${esc(String(data).slice(0,8000))}</pre>`;
+}
 async function fetchArtifactHtml(url){
   if(artifactCache.has(url)) return artifactCache.get(url);
   try{
     const r=await fetch(url); const t=await r.text();
-    const html=`<pre>${esc(t.slice(0,14000))}${t.length>14000?'\n… (truncated)':''}</pre>`;
+    let html;
+    if(/\.json(\?|$)/i.test(url)){
+      try{ html=_renderJsonArtifact(JSON.parse(t)); }
+      catch(e){ html=`<pre>${esc(t.slice(0,14000))}${t.length>14000?'\n… (truncated)':''}</pre>`; }
+    } else {
+      html=`<pre>${esc(t.slice(0,14000))}${t.length>14000?'\n… (truncated)':''}</pre>`;
+    }
     artifactCache.set(url,html); return html;
   }catch(e){ return `<span class="bad">${esc(String(e))}</span>`; }
 }
@@ -464,7 +496,7 @@ async function saveProjectSettings(pid){
   renderProjectPanel();
 }
 function manualToolsHtml(files){ const options=files.map(f=>`<option value="${esc(f.path||'')}">${esc(f.rel||f.name)}</option>`).join(''); return `<label>File &nbsp;<select id="toolFile">${options}</select></label><br><label>Tool &nbsp;<select id="toolName">${fileTools.map(t=>`<option>${esc(t)}</option>`).join('')}</select></label><br><br><button class="btn primary" onclick="runTool()">Run tool</button><div id="toolOut"></div>`; }
-async function runTool(){ const path=qs('toolFile').value, tool=qs('toolName').value; const fd=new FormData(); fd.append('path',path); fd.append('toolname',tool); const j=await fetchJson('/api/run_tool',{method:'POST',body:fd}); qs('toolOut').innerHTML=`<pre>${esc(JSON.stringify(j,null,2))}</pre>`; }
+async function runTool(){ const path=qs('toolFile').value, tool=qs('toolName').value; const fd=new FormData(); fd.append('path',path); fd.append('toolname',tool); const j=await fetchJson('/api/run_tool',{method:'POST',body:fd}); const out=qs('toolOut'); if(!j){out.innerHTML='<span class="err">No response</span>';return;} const lines=[`<span style="opacity:.5">$ ${esc(j.cmd||tool)}</span>`]; if(j.out&&j.out.trim()) lines.push(`<pre style="margin:6px 0 0">${esc(j.out)}</pre>`); if(j.err&&j.err.trim()) lines.push(`<pre class="err" style="margin:6px 0 0">${esc(j.err)}</pre>`); if(!j.ok) lines.push(`<span class="err">exit ${esc(String(j.code??'?'))}</span>`); if(j.missing&&j.missing.length) lines.push(`<span class="err">missing: ${esc(j.missing.join(', '))}</span>`); if(j.install_hint) lines.push(`<span style="opacity:.6">${esc(j.install_hint)}</span>`); out.innerHTML=`<div style="margin-top:10px">${lines.join('')}</div>`; }
 
 // ── Project controls ─────────────────────────────────────────────────────────
 

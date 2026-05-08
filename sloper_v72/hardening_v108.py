@@ -214,7 +214,10 @@ def apply(mod):
     async def run_tool_endpoint(path: str = Form(...), toolname: str = Form(...)):
         p, root, err = safe_source_path(path)
         if err: return err
-        return mod.run_tool_local(p, toolname, 45)
+        result = mod.run_tool_local(p, toolname, 45)
+        if isinstance(result, dict):
+            return {k: v for k, v in result.items() if k in ("ok", "code", "cmd", "out", "err", "tool", "missing", "install_hint")}
+        return result
 
     async def run_tool_suite(path: str = Form(...), suite: str = Form("quick")):
         p, root, err = safe_source_path(path)

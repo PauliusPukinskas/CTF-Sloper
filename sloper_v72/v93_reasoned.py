@@ -2096,6 +2096,12 @@ def v96_try_decoded_value(label: str, val: str) -> list[tuple[str, str]]:
         for i,part in enumerate(s.split(".")):
             try: add(label+f":jwt_part_{i}", base64.urlsafe_b64decode(part + "="*((4-len(part)%4)%4)))
             except Exception: pass
+    # ROT13 — common CTF obfuscation.
+    rot = s.translate(str.maketrans(
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+        "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"))
+    if rot != s:
+        add(label+":rot13", rot)
     return outs[:80]
 
 def v96_structured_text_agent(report: dict, root: Path, data: bytes) -> list[dict]:
