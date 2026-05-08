@@ -29,13 +29,19 @@ bash scripts/git_init_upload.sh YOUR_GITHUB_USERNAME ctf-sloper
 
 ## Install external CTF tools
 
-For Ubuntu, Pop!_OS, Debian, or similar:
+Supported on **Ubuntu / Debian / Pop!\_OS** and **Arch Linux** (with `yay` or `paru` for AUR packages):
 
 ```bash
 bash FULL_INSTALL.sh
 ```
 
 This installs common CTF tooling such as `binwalk`, `exiftool`, `steghide`, `zsteg`, `tshark`, `qpdf`, `gdb`, `jadx`, OCR tools, and Python/Ruby/Node helper packages.
+
+On Arch Linux, AUR packages (`foremost`, `steghide`, `apktool`, `jadx`, etc.) require an AUR helper. If you don't have one:
+
+```bash
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
 
 ## Clean repository layout
 

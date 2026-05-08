@@ -8,7 +8,7 @@ if [ -f "/usr/lib/python${PYVER}/EXTERNALLY-MANAGED" ]; then
   PIP_EXTRA="--break-system-packages"
 fi
 
-pip install --upgrade-strategy only-if-needed $PIP_EXTRA -r requirements.txt
+python3 -m pip install --upgrade-strategy only-if-needed $PIP_EXTRA -r requirements.txt
 
 HOST="${HOST:-127.0.0.1}"
 PORT="${PORT:-7860}"

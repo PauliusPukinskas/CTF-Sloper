@@ -32,6 +32,20 @@ if [ -f "/usr/lib/python${PYVER}/EXTERNALLY-MANAGED" ]; then
   PIP_EXTRA="--break-system-packages"
 fi
 
+# ─── Distro Detection ─────────────────────────────────────────────────────────
+DISTRO="unknown"
+if command -v apt-get &>/dev/null && command -v dpkg-query &>/dev/null; then
+  DISTRO="debian"
+elif command -v pacman &>/dev/null; then
+  DISTRO="arch"
+fi
+
+AUR_CMD=""
+if [ "$DISTRO" = "arch" ]; then
+  if command -v yay &>/dev/null; then AUR_CMD="yay"
+  elif command -v paru &>/dev/null; then AUR_CMD="paru"
+  fi
+fi
 pip_pkg() {
   local pkg="$1"
   local base; base="${pkg%%[>=<!]*}"
@@ -50,6 +64,15 @@ echo -e "${BOLD}${CYAN}╔══════════════════
 echo -e "${BOLD}${CYAN}║         CTF SLOPER — Tool Installer v2           ║${RESET}"
 echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════╝${RESET}"
 echo -e "  ${DIM}$(date)${RESET}"
+echo -e "  ${DIM}Distro: ${DISTRO}${RESET}"
+if [ "$DISTRO" = "arch" ]; then
+  if [ -n "$AUR_CMD" ]; then
+    echo -e "  ${DIM}AUR helper: ${AUR_CMD}${RESET}"
+  else
+    echo -e "  ${YELLOW}→  No AUR helper (yay/paru) found — AUR packages will be skipped${RESET}"
+    echo -e "  ${DIM}  Install yay: git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si${RESET}"
+  fi
+fi
 
 info "Syntax-checking app.py..."
 timeout 45 python3 -m py_compile app.py \
@@ -66,9 +89,11 @@ fi
 step_done
 
 # ─── Step 2 ───────────────────────────────────────────────────────────────────
-section "2" "Debian/Ubuntu system packages"
-info "Writing fast-apt config..."
-sudo bash -c 'cat > /etc/apt/apt.conf.d/99ctf-fast <<EOF
+section "2" "System packages"
+
+if [ "$DISTRO" = "debian" ]; then
+  info "Writing fast-apt config..."
+  sudo bash -c 'cat > /etc/apt/apt.conf.d/99ctf-fast <<EOF
 Acquire::Queue-Mode "host";
 Acquire::http::Timeout "30";
 Acquire::https::Timeout "30";
@@ -77,38 +102,106 @@ APT::Install-Recommends "false";
 APT::Install-Suggests "false";
 EOF'
 
-info "Running apt-get update..."
-sudo apt-get update -q
-export DEBIAN_FRONTEND=noninteractive
+  info "Running apt-get update..."
+  sudo apt-get update -q
+  export DEBIAN_FRONTEND=noninteractive
 
-apt_group() {
-  local label="$1"; shift
-  echo ""
-  echo -e "  ${CYAN}▸ ${label}${RESET}"
-  for pkg in "$@"; do
-    if dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q "install ok installed"; then
-      skip "$pkg"
-    else
-      info "apt install $pkg"
-      sudo apt-get install -y -q "$pkg" 2>&1 \
-        | grep -E "^(Get:|Unpacking|Setting up)" | sed 's/^/        /' || true
-      ok "$pkg"
+  apt_group() {
+    local label="$1"; shift
+    echo ""
+    echo -e "  ${CYAN}▸ ${label}${RESET}"
+    for pkg in "$@"; do
+      if dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q "install ok installed"; then
+        skip "$pkg"
+      else
+        info "apt install $pkg"
+        sudo apt-get install -y -q "$pkg" 2>&1 \
+          | grep -E "^(Get:|Unpacking|Setting up)" | sed 's/^/        /' || true
+        ok "$pkg"
+      fi
+    done
+  }
+
+  apt_group "Python"          python3 python3-pip python3-dev python3-setuptools python3-wheel
+  apt_group "Build tools"     build-essential cmake make gcc g++ git curl wget unzip zip p7zip-full p7zip-rar unrar-free
+  apt_group "Binary / Debug"  file binutils binutils-multiarch gdb ltrace strace patchelf elfutils checksec
+  apt_group "Forensics"       binwalk foremost sleuthkit bulk-extractor exiftool steghide outguess
+  apt_group "Media"           imagemagick ffmpeg sox libimage-exiftool-perl tesseract-ocr tesseract-ocr-lit tesseract-ocr-eng zbar-tools
+  apt_group "Network"         tshark tcpdump wireshark-common netcat-openbsd nmap
+  apt_group "PDF / Docs"      poppler-utils qpdf mupdf-tools
+  apt_group "Utils"           sqlite3 jq ripgrep tree xxd bsdmainutils dos2unix
+  apt_group "Ruby"            ruby ruby-dev gem
+  apt_group "Java / Android"  apktool jadx default-jdk
+  apt_group "Node.js"         nodejs npm
+  apt_group "Dev libs"        libssl-dev libffi-dev libmagic-dev libzbar0 libjpeg-dev zlib1g-dev libbz2-dev liblzma-dev
+
+elif [ "$DISTRO" = "arch" ]; then
+  info "Running pacman -Sy..."
+  sudo pacman -Sy --noconfirm
+
+  pac_installed() { pacman -Q "$1" &>/dev/null 2>&1; }
+
+  pacman_group() {
+    local label="$1"; shift
+    echo ""
+    echo -e "  ${CYAN}▸ ${label}${RESET}"
+    for pkg in "$@"; do
+      if pac_installed "$pkg"; then
+        skip "$pkg"
+      else
+        info "pacman -S $pkg"
+        sudo pacman -S --noconfirm --needed "$pkg" 2>&1 \
+          | grep -E "^(Packages|downloading|installing|upgrading|resolving)" \
+          | sed 's/^/        /' || true
+        if pac_installed "$pkg"; then ok "$pkg"; else xfail "$pkg"; fi
+      fi
+    done
+  }
+
+  arch_aur_group() {
+    local label="$1"; shift
+    if [ -z "$AUR_CMD" ]; then
+      echo -e "  ${YELLOW}→  Skipping '${label}' — no AUR helper (install yay or paru)${RESET}"
+      return
     fi
-  done
-}
+    echo ""
+    echo -e "  ${CYAN}▸ ${label} (AUR)${RESET}"
+    for pkg in "$@"; do
+      if pac_installed "$pkg"; then
+        skip "$pkg"
+      else
+        info "$AUR_CMD -S $pkg"
+        "$AUR_CMD" -S --noconfirm --needed "$pkg" 2>&1 \
+          | grep -E "^(Packages|downloading|installing|upgrading|resolving)" \
+          | sed 's/^/        /' || true
+        if pac_installed "$pkg"; then ok "$pkg"; else xfail "$pkg"; fi
+      fi
+    done
+  }
 
-apt_group "Python"          python3 python3-pip python3-dev python3-setuptools python3-wheel
-apt_group "Build tools"     build-essential cmake make gcc g++ git curl wget unzip zip p7zip-full p7zip-rar unrar-free
-apt_group "Binary / Debug"  file binutils binutils-multiarch gdb ltrace strace patchelf elfutils checksec
-apt_group "Forensics"       binwalk foremost sleuthkit bulk-extractor exiftool steghide outguess
-apt_group "Media"           imagemagick ffmpeg sox libimage-exiftool-perl tesseract-ocr tesseract-ocr-lit tesseract-ocr-eng zbar-tools
-apt_group "Network"         tshark tcpdump wireshark-common netcat-openbsd nmap
-apt_group "PDF / Docs"      poppler-utils qpdf mupdf-tools
-apt_group "Utils"           sqlite3 jq ripgrep tree xxd bsdmainutils dos2unix
-apt_group "Ruby"            ruby ruby-dev gem
-apt_group "Java / Android"  apktool jadx default-jdk
-apt_group "Node.js"         nodejs npm
-apt_group "Dev libs"        libssl-dev libffi-dev libmagic-dev libzbar0 libjpeg-dev zlib1g-dev libbz2-dev liblzma-dev
+  pacman_group "Python"         python python-pip python-setuptools python-wheel
+  pacman_group "Build tools"    base-devel cmake make git curl wget unzip zip p7zip
+  pacman_group "Binary / Debug" binutils gdb ltrace strace patchelf elfutils checksec
+  pacman_group "Forensics"      binwalk sleuth-kit perl-image-exiftool
+  pacman_group "Media"          imagemagick ffmpeg sox tesseract tesseract-data-eng zbar
+  pacman_group "Network"        wireshark-cli tcpdump nmap openbsd-netcat
+  pacman_group "PDF / Docs"     poppler qpdf mupdf
+  pacman_group "Utils"          sqlite jq ripgrep tree xxd dos2unix unrar
+  pacman_group "Ruby"           ruby
+  pacman_group "Java"           jdk-openjdk
+  pacman_group "Node.js"        nodejs npm
+  pacman_group "Dev libs"       openssl libffi file zbar libjpeg-turbo zlib bzip2 xz
+
+  arch_aur_group "Forensics (AUR)"  foremost bulk_extractor steghide outguess
+  arch_aur_group "Android (AUR)"    apktool jadx
+
+  # tesseract language data (try pacman first, then AUR)
+  pacman_group "Tesseract LIT"  tesseract-data-lit || true
+
+else
+  echo -e "  ${YELLOW}→  Unknown or unsupported distro — skipping system package installation${RESET}"
+  echo -e "  ${YELLOW}→  Please manually install: binwalk exiftool steghide binutils gdb python3 nodejs ruby${RESET}"
+fi
 step_done
 
 # ─── Step 3 ───────────────────────────────────────────────────────────────────
