@@ -46,6 +46,7 @@ if [ "$DISTRO" = "arch" ]; then
   elif command -v paru &>/dev/null; then AUR_CMD="paru"
   fi
 fi
+
 pip_pkg() {
   local pkg="$1"
   local base; base="${pkg%%[>=<!]*}"
