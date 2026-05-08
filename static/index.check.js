@@ -463,8 +463,8 @@ async function saveProjectSettings(pid){
   S.current=pj;
   renderProjectPanel();
 }
-function manualToolsHtml(files){ const options=files.map(f=>`<option value="${esc(f.path||'')}">${esc(f.rel||f.name)}</option>`).join(''); return `<label>file<select id="toolFile">${options}</select></label><br><label>tool<select id="toolName">${fileTools.map(t=>`<option>${esc(t)}</option>`).join('')}</select></label><br><button class="btn primary" onclick="runTool()">Run tool</button><div id="toolOut"></div>`; }
-async function runTool(){ const path=qs('toolFile').value, tool=qs('toolName').value; const j=await fetchJson('/api/run_tool',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path,tool})}); qs('toolOut').innerHTML=`<pre>${esc(JSON.stringify(j,null,2))}</pre>`; }
+function manualToolsHtml(files){ const options=files.map(f=>`<option value="${esc(f.path||'')}">${esc(f.rel||f.name)}</option>`).join(''); return `<label>File &nbsp;<select id="toolFile">${options}</select></label><br><label>Tool &nbsp;<select id="toolName">${fileTools.map(t=>`<option>${esc(t)}</option>`).join('')}</select></label><br><br><button class="btn primary" onclick="runTool()">Run tool</button><div id="toolOut"></div>`; }
+async function runTool(){ const path=qs('toolFile').value, tool=qs('toolName').value; const fd=new FormData(); fd.append('path',path); fd.append('toolname',tool); const j=await fetchJson('/api/run_tool',{method:'POST',body:fd}); qs('toolOut').innerHTML=`<pre>${esc(JSON.stringify(j,null,2))}</pre>`; }
 
 // ── Project controls ─────────────────────────────────────────────────────────
 

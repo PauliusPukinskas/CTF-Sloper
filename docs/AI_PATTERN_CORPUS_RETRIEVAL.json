@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "corpus": "C:\\Users\\User\\Documents\\Codex\\2026-04-27\\files-mentioned-by-the-user-ctf\\CTF-Sloper-main4-work\\CTF-Sloper-main\\data\\ai_ctf_multistep_patterns.jsonl",
+  "retrieval": {
+    "total": 3000,
+    "passed": 3000,
+    "failed": 0,
+    "failures": []
+  },
+  "solver_smoke": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0,
+    "results": []
+  }
+}

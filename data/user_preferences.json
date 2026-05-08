@@ -3,13 +3,13 @@
   "theme": "dark",
   "accent_color": "#35d07f",
   "tool_color": "#35d07f",
-  "flag_format": "any_prefix",
-  "flag_prefix": "DUCTF",
-  "custom_flag_regex": "KEY-AI-PATTERN-\\d{4}",
+  "flag_format": "ctf_cs",
+  "flag_prefix": "ctf_cs",
+  "custom_flag_regex": "",
   "attack_preset": "deep",
   "difficulty": "multi_step",
-  "max_depth": 6,
-  "max_artifacts": 3500,
+  "max_depth": 3,
+  "max_artifacts": 800,
   "max_runtime_seconds": 120,
   "enabled_categories": {
     "crypto": true,
@@ -26,7 +26,7 @@
   },
   "artifact_view": "clean",
   "show_project_counter": true,
-  "flag_label": "anyPrefix{...}",
-  "flag_regex": "(?is)\\b[A-Za-z0-9_]{1,32}\\{[^{}\\r\\n]{1,220}\\}",
+  "flag_label": "ctf_cs{...}",
+  "flag_regex": "(?is)\\bctf_cs\\{[^{}\\r\\n]{1,220}\\}",
   "v111_profile": true
 }

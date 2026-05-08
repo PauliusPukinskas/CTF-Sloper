@@ -335,13 +335,27 @@ def rerank_summary(summary: dict[str, Any]) -> dict[str, Any]:
             summary["unconfirmed_evidence"].append(ev)
             existing_unc.add(key)
     best = promoted[0] if promoted else {}
+    best_flag = best.get("preferred_flag") or best.get("flag")
+    best_score = int(best.get("ranking_score", best.get("score", 0)) or 0) if best else None
+    for triage_key in ("v117_triage", "v116_triage", "v115_triage", "v114_triage"):
+        triage = summary.get(triage_key)
+        if isinstance(triage, dict) and best_flag:
+            # Older evidence layers compute their own best flag before this
+            # final gate runs.  Keep their counts, but make their headline
+            # agree with the backend submit ordering so reports/benchmarks do
+            # not point at stale ROT/route noise after reranking.
+            triage["pre_clean_ranking_best_flag"] = triage.get("best_flag")
+            triage["best_flag"] = best_flag
+            triage["best_score"] = best_score
+            triage["best_verdict"] = best.get("ranking_class") or triage.get("best_verdict")
+            triage["clean_ranking_applied"] = True
     summary["sloper_final_ranking"] = {
         "enabled": True,
         "version": "clean-ranking-gate",
         "updated": int(time.time()),
         "promoted": len(promoted),
         "manual_evidence": len(manual),
-        "best_flag": best.get("preferred_flag") or best.get("flag"),
+        "best_flag": best_flag,
         "best_class": best.get("ranking_class"),
         "operator_hint": "Submission flags require direct/decoded/high-signal evidence; README metadata labels are kept only as manual evidence.",
     }

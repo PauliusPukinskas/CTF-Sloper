@@ -140,10 +140,23 @@ This build keeps the frontend unchanged and improves the backend solver path:
 Useful backend checks:
 
 ```bash
+python3 scripts/backend_guard_smoke.py
 python3 scripts/benchmark_solver.py
 python3 scripts/benchmark_extra_multistep.py
 python3 scripts/benchmark_ai_pattern_corpus.py --solver-sample 20
 ```
+
+## Backend reliability guard
+
+The current backend includes a late runtime guard in `sloper/backend_guard.py`.
+It preserves the existing solver stack while tightening the risky edges that can
+break real CTF sessions: streaming uploads, project-id validation, raw artifact
+path containment, `events.log` tailing, atomic `report.json` writes, ZIP
+decompression caps, custom-regex sanitation, safe `.pyc` string extraction, and
+blocking automatic execution/tracing of uploaded binaries. The final ranking
+gate also synchronizes older triage summaries, so metadata labels or stale
+ROT/route noise do not stay as the headline candidate after a stronger decoded
+artifact is found.
 
 Run a fair benchmark against a local CTF writeup/challenge repo:
 

@@ -43,6 +43,7 @@ BOOT_STEPS: tuple[BootStep, ...] = (
     BootStep("deep workflows", "sloper.deep_workflows"),
     BootStep("pattern intelligence", "sloper.pattern_intelligence"),
     BootStep("final ranking", "sloper.ranking"),
+    BootStep("backend guard", "sloper.backend_guard"),
 )
 
 
