@@ -29,7 +29,7 @@ bash scripts/git_init_upload.sh YOUR_GITHUB_USERNAME ctf-sloper
 
 ## Install external CTF tools
 
-Supported on **Ubuntu / Debian / Pop!\_OS** and **Arch Linux** (with `yay` or `paru` for AUR packages):
+Supported on **Ubuntu / Debian / Pop!\_OS** and **Arch Linux**
 
 ```bash
 bash FULL_INSTALL.sh
