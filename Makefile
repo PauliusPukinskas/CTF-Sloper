@@ -1,4 +1,4 @@
-.PHONY: run install full-install check test clean package
+.PHONY: run install full-install doctor doctor-json check test clean package
 
 run:
 	bash START_HERE.sh
@@ -8,6 +8,12 @@ install:
 
 full-install:
 	bash FULL_INSTALL.sh
+
+doctor:
+	python3 scripts/doctor.py
+
+doctor-json:
+	python3 scripts/doctor.py --json
 
 check:
 	bash scripts/check.sh
