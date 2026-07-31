@@ -1,0 +1,49 @@
+name: Quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pytest
+
+      - name: Run repository checks
+        run: bash scripts/check.sh
+
+      - name: Run tests
+        run: python -m pytest -q
+
+      - name: Capture environment diagnostic
+        if: always()
+        run: python scripts/doctor.py --json > doctor-report.json || true
+
+      - name: Upload diagnostic on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: environment-diagnostic
+          path: doctor-report.json
+          if-no-files-found: ignore
+          retention-days: 7
