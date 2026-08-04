@@ -3,7 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 echo "[1/4] Python syntax check"
-python3 -m py_compile app.py sloper_legacy.py
+python3 -m py_compile app.py sloper_legacy.py scripts/hash_identifier.py
 python3 -m compileall -q sloper_v72
 
 echo "[2/4] Import smoke check"
